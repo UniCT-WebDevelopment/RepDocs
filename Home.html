@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RepDocs</title>
+    <link rel="stylesheet" type="text/css" href="Stile.css">
+</head>
+
+<body>
+    <div class="Menu">
+        <div class="Name">RepDocs</div>        
+        <div>
+            <ul class="LMenu">
+                <li onclick="Accesso()">Accedi</li>
+                <li onclick="Registrati()">Registrati</li>
+            </ul>
+        </div>
+    </div>
+    <div class="Presentation">
+        <div class="mySlides fade" style="background-image: url('Immagini/Immagine1.jpg');">
+            <br><br><br>
+            <p class="Slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
+            Qui puoi caricare i documenti che vuoi condividere e 
+            scaricare quelli che ti interessano!</p>
+            <div class="BtnContainer">
+                <input class="btn" type="button" onclick="Accesso()" value="Accedi">
+                <input class="btn" type="button" onclick="Registrati()" value="Registrati">    
+            </div>
+        </div>
+        <div class="mySlides fade" style="background-image: url('Immagini/Immagine2.jpg');">
+            <br><br><br>
+            <p class="Slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
+            Qui puoi caricare i documenti che vuoi condividere e 
+            scaricare quelli che ti interessano!</p>
+            <div class="BtnContainer">
+                <input class="btn" type="button" onclick="Accesso()" value="Accedi">
+                <input class="btn" type="button" onclick="Registrati()" value="Registrati">    
+            </div>    
+        </div>
+        <div class="mySlides fade" style="background-image: url('Immagini/Immagine3.jpg');">
+            <br><br><br>
+            <p class="Slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
+            Qui puoi caricare i documenti che vuoi condividere e 
+            scaricare quelli che ti interessano!</p>
+            <div class="BtnContainer">
+                <input class="btn" onclick="Accesso()" type="button" value="Accedi">
+                <input class="btn" onclick="Registrati()" type="button" value="Registrati">    
+            </div>        
+        </div>
+    </div>
+    <p class="Pres">Su <span style="color: orange"><b>RepDocs</b></span> puoi caricare tutti i file di tipo pdf che vorresti 
+    condividere con gli altri utenti di Internet e scaricare quelli che ti interessano.<br><br>
+    Qui puoi trovare documenti di qualsiasi tipo, come libri, ricerche, appunti e molto altro. <br><br>I documenti possono
+    essere documenti che trattano qualsiasi argomento. <br><br>I documenti protetti da copyright non possono essere caricati.<br><br><br>Registrati su <span style="color: orange;"><b>RepDocs</b></span> per entrare a far parte di questa Community.
+    <br><br><br><br>Per Assistenza contattaci all'Indirizzo E-Mail <span style="color: orange"><b>RepDocs095@gmail.com</b></span> 
+    </p>
+    <div class="Footer"><p class="Name" style="text-align: center;">RepDocs</p></div>
+    
+    <div id="AccessModal" class="Modal">
+        <div id="ModalAccessContainer" class="ModalContainer">
+            <div class="close" onclick="CloseA()">&times;</div><br>
+            <h1 style="text-align: center; margin-bottom: 1%;">Accedi</h1>
+            <hr><br><br>
+            <form>
+                <input class="TextBox Tst" type="email" name="EMail" placeholder="Inserisci E-Mail"><br>
+                <input class="TextBox Tst" type="password" name="Password" placeholder="Inserisci Password">
+                <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
+                    <input class="Fbtn" onclick="Correggi()" type="button" value="Password Dimenticata">
+                    <input class="Fbtn" onclick="Accedi()" type="button" value="Accedi">
+                </div>
+            </form>
+            <p class="Load">Caricamento...</p>
+            <p id="AccessErr" class="Error"></p>
+        </div>
+    </div>
+
+    <div id="ResolveModal" class="Modal">
+        <div id="ModalResolveContainer" class="ModalContainer">
+            <div class="close" onclick="CloseResolve()">&times;</div><br>
+            <h1 style="text-align: center; margin-bottom: 1%;">Recupero Password</h1>
+            <p style="text-align: center; font-size: 18px;">Ti abbiamo inviato una Mail con la Password di Recupero</p>
+            <hr><br><br>
+            <form>
+                <input class="TextBox Tst" type="password" name="Inv_Pass" placeholder="Inserisci Password Inviata"><br>
+                <input class="TextBox Tst" type="password" name="Nuova_Password" placeholder="Inserisci Password">
+                <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
+                    <input class="Fbtn" onclick="Risoluzione()" type="button" value="Risolvi">
+                </div>
+            </form>
+            <p id="Success" class="Succ"></p>
+            <p class="Load">Caricamento...</p>
+            <p id="ResolveErr" class="Error"></p>
+        </div>
+    </div>
+
+    <div id="RegisterModal" class="Modal">
+        <div id="ModalRegisterContainer" class="ModalContainer">
+            <div class="close" onclick="CloseR()">&times;</div><br>
+            <h1 style="text-align: center; margin-bottom: 1%;">Registrati</h1>
+            <hr><br><br>
+            <form>
+                <input class="TextBox Tst" type="text" name="EMail" placeholder="Inserisci E-Mail"><br>
+                <input class="TextBox Tst" type="text" name="Nome" placeholder="Inserisci Nome"><br>
+                <input class="TextBox Tst" type="text" name="Cognome" placeholder="Inserisci Cognome"><br>
+                <input class="TextBox Tst" type="date" name="DataNascita" placeholder="Inserisci Data di Nascita"><br>
+                <input class="TextBox Tst" type="password" name="Password" placeholder="Inserisci Password">
+                <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
+                    <input class="Fbtn" onclick="Registrazione()" type="button" value="Registrati">
+                </div>
+            </form>
+            <p class="Load">Caricamento...</p>
+            <p id="RegisterErr" class="Error"></p>
+        </div>
+    </div>    
+    <script type="application/javascript" src="Home.js"></script>
+</body>
+
+</html>
