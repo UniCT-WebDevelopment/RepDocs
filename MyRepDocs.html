@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RepDocs</title>
+        <link rel="stylesheet" type="text/css" href="Stile.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <div class="Menu">
+            <div class="Name" style="cursor: pointer;" onclick="AreaUtenti()">RepDocs</div>
+            <div class="DMenu">
+                <div class="DMenuUser">
+    
+                    <div>
+                        <form style="width:100%">
+                            <input class="TextBox Tst" style="display: inline; width: 50%; font-size: 13px;" type="text" name="Ricerca" placeholder="Cerca Documenti">
+                            <input type="button" onclick="LoadSearchedDoc()" class="btn" style="color: white; background-color: rgba(255, 166, 0, 0.5); border: 2px solid orange; margin-left: 10px;" value="Cerca">
+                        </form>
+                    </div>
+    
+                    <div>
+                        <ul class="LMenu">
+                            <li onclick="Add()">Aggiungi</li>
+                            <li onclick="Modify()">Modifica</li>
+                            <li onclick="Exit()">Esci</li>
+                        </ul>
+                    </div>
+                                    
+                </div>
+            </div>
+    
+            <div class="TopMenu">
+                <a style="float: right; font-size: 25px; color: orange; margin-right: 8px; padding: 0; cursor:pointer; margin-top: 10px; margin-bottom: 11px;" class="icon" onclick="ShowMenu()"><i class="fa fa-bars"></i></a>
+            </div>
+        </div>
+        
+        <div class="topnav">
+            <div id="MyLinks">
+                <div style="display: grid; grid-template-columns: auto;">
+                    <form>
+                        <input class="TextBox Tst" style="float: left;" type="text" name="Ricerca" placeholder="Cerca Documenti">
+                        <input type="button" onclick="LoadSearchedDoc()" class="btn" style="color: white; background-color: rgba(255, 166, 0, 0.5); border: 2px solid orange; margin-left: 10px; margin-top: 0;" value="Cerca">
+                    </form>
+                </div>
+                <a onclick="Add()">Aggiungi</a>
+                <a onclick="Modify()">Modifica</a>
+                <a onclick="Exit()">Esci</a>
+            </div>
+        </div>
+        
+        <h1 class="HTitle" style="text-align: center; margin-top: 65px; font-size: 60px;">I Tuoi Documenti</h1>
+        <br><br>
+        <p id="NOT_FOUNDM" class="Inexist" style="display: none;">Nessun Documento Trovato</p>
+
+        <div id="MyDocs" class="Docs">  
+        </div>
+
+        <div id="AddModal" class="Modal">
+            <div id="ModalAddContainer" class="ModalContainer">
+                <div class="close" onclick="CloseAdd()">&times;</div><br>
+                <h1 style="text-align: center; margin-bottom: 1%;">Aggiungi Documento</h1>
+                <hr><br><br>
+                <form action="AddDoc.php" method="POST" enctype="multipart/form-data">
+                    <p class="label">Documento:</p>
+                    <input class="TextBox Tst" type="file" name="File" required><br>
+                    <p class="label">Titolo:</p>
+                    <input class="TextBox Tst" type="text" name="Titolo" placeholder="Inserisci Titolo" required><br>
+                    <p class="label">Descrizione:</p>
+                    <textarea class="TextBox Tst" maxlength="1500" name="Descrizione" style="max-width: 50%; max-height: 200px; min-width: 50%; min-height: 200px;" placeholder="Inserisci Descrizione" required></textarea>
+                    <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
+                        <input class="Fbtn" type="submit" value="Aggiungi">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div id="ModifyModal" class="Modal">
+            <div id="ModalModifyContainer" class="ModalContainer">
+                <div class="close" onclick="CloseMod()">&times;</div><br>
+                <h1 style="text-align: center; margin-bottom: 1%;">Registrati</h1>
+                <hr style="border: 1px solid black"><br><br>
+                <form>
+                    <p class="label">E-Mail:</p>
+                    <input class="TextBox Tst" type="text" name="EMail" placeholder="Inserisci E-Mail"><br>
+                    <p class="label">Nome:</p>
+                    <input class="TextBox Tst" type="text" name="Nome" placeholder="Inserisci Nome"><br>
+                    <p class="label">Cognome:</p>
+                    <input class="TextBox Tst" type="text" name="Cognome" placeholder="Inserisci Cognome"><br>
+                    <p class="label">Data di Nascita:</p>
+                    <input class="TextBox Tst" type="date" name="DataNascita" placeholder="Inserisci Data di Nascita"><br>
+                    <p class="label">Password:</p>
+                    <input class="TextBox Tst" type="password" name="Password" placeholder="Inserisci Password">
+                    <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
+                        <input class="Fbtn" onclick="Modifica()" type="button" value="Modifica">
+                    </div>
+                </form>
+                <br><br>
+                <hr style="border: 1px solid black"><br><br>
+                <div style="text-align: center;"><input type="button" class="btn" style="background-color: red; color: white;" style="width: 50%;" onclick="DeleteAccount()" value="Elimina Account"></div>
+                <p id="Riuscito" class="Succ"></p>
+                <p class="Load">Caricamento...</p>
+                <p id="ModifyErr" class="Error"></p>
+            </div>
+        </div>        
+        <script type="application/javascript" src="MyRepDocs.js"></script>
+    </body>
+
+</html>
