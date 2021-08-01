@@ -241,7 +241,7 @@ function DeleteAccount(){
     Invio.onload = function(){
         alert(Invio.responseText);
         if(Invio.responseText == "Ok"){
-            alert("Il tuo Account RepDocs è stato Eliminato");
+            alert("Il tuo Account RepDocs e' stato Eliminato");
             location.href="index.html";
         }
         else{
