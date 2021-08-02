@@ -122,3 +122,7 @@ function DownSum(ID){
     Invio.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     Invio.send("ID=" + ID);
 }
+
+function AreaUtenti(){
+    location.href="AreaUtenti.html";
+}
