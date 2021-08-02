@@ -27,18 +27,18 @@ Clicca su RepDocs che vi è a sinistra del Menu per ritornare alla pagina Area U
 
 RepDocs è stato realizzato limitando fortemente l'uso delle librerie esterne o framework sia per quanto riguarda il lato Front-End che per quanto riguarda il Lato Back-End.
 La Responsività è stata implementata usando le CSS Grid e le CSS Media Query. Per quanto riguarda il lato Back-End è stato realizzato usando il linguaggio di programmazione lato server PHP. Le chiamate Asincrone al Server sono state implementate in Javascript usando AJAX. Il caricamento degli item nel client è stato implementato attraverso l'uso delle chiamate asincrone che richiedono al server i documenti caricati e il server li invia al client in formato JSON. RepDocs è dotato di un semplice Database Relazione implementato in SQL che ha lo scopo di memorizzare gli utenti registrati e i documenti caricati. La Connessione al Databese è implementata attraverso PDO. Sono state implementate le sessioni php per mantenere l'accesso di un utente loggato, e nel caso in cui l'utente non dovesse ricordare la password è stato implementato anche l'invio delle E_Mail di recupero. 
-Infine, nell'Area Utenti spuntano gli ultimi 8 documenti caricati e gli 8 documenti più scaricati, queste operazioni sono state realizzate usando rispettivamente la clausola sql ORDER BY e la clausola SQL LIKE.
+Infine, nell'Area Utenti spuntano gli ultimi 8 documenti caricati e gli 8 documenti più scaricati, queste operazioni sono state realizzate usando rispettivamente la clausola sql ORDER BY e la clausola sql LIKE.
 
 # Linguaggi Utilizzati
-HTML, CSS, JS (Lato Client); <br>
-PHP (Lato Server); <br>
-SQL (Creazione Modello Fisico DB Relazionale).
+<b>HTML, CSS, JS</b> (Lato Client); <br><br>
+<b>PHP</b> (Lato Server); <br><br>
+<b>SQL</b> (Creazione Modello Fisico DB Relazionale).
 
 # Strumenti Utilizzati
-XAMPP (https://www.apachefriends.org/it/index.html);<br>
-APACHE HTTP SERVER (Web Server Utilizzato integrato in XAMPP);<br>
-MySQL (Servizio per Database Relazionali integrato in XAMPP);<br>
-Filezilla (Software che permette il trasferimento in rete dei file integrato in XAMPP)<br>
+<b>XAMPP</b> (https://www.apachefriends.org/it/index.html);<br><br>
+<b>APACHE HTTP SERVER</b> (Web Server Utilizzato integrato in XAMPP);<br><br>
+<b>MySQL</b> (Servizio per Database Relazionali integrato in XAMPP);<br><br>
+<b>Filezilla</b> (Software che permette il trasferimento in rete dei file integrato in XAMPP)<br>
 
 # Implementazione DB Relazionale
 
