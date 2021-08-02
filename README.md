@@ -14,26 +14,17 @@ La Responsività è stata implementata usando le CSS Grid e le CSS Media Query. 
 Infine, nell'Area Utenti spuntano gli ultimi 8 documenti caricati e gli 8 documenti più scaricati, queste operazioni sono state realizzate usando rispettivamente la clausola sql ORDER BY e la clausola sql LIKE.
 
 # Linguaggi Utilizzati
-<b>HTML, CSS, JS</b> (Lato Client); <br><br>
-<b>PHP</b> (Lato Server); <br><br>
+<b>HTML, CSS, JS</b> (Lato Client) <br><br>
+<b>PHP</b> (Lato Server) <br><br>
 <b>SQL</b> (Creazione Modello Fisico DB Relazionale).
 
 # Strumenti Utilizzati
-<b>XAMPP</b> (https://www.apachefriends.org/it/index.html);<br><br>
-<b>APACHE HTTP SERVER</b> (Web Server Utilizzato integrato in XAMPP);<br><br>
-<b>MySQL</b> (Servizio per Database Relazionali integrato in XAMPP);<br><br>
-<b>Filezilla</b> (Software che permette il trasferimento in rete dei file integrato in XAMPP)<br>
+<b>APACHE HTTP SERVER</b><br><br>
+<b>MySQL Ver 15.1 Distrib 10.4.19-MariaDB</b><br><br>
+<b>PHP 8.0.6</b>
+<b>Filezilla</b><br>
 
-# Implementazione DB Relazionale
-
-## Modello Entità-Relazioni
-![Modello ER](https://user-images.githubusercontent.com/28182917/127783528-04e5d815-0d47-4c3f-abc3-4414a48f1071.jpeg)
-
-
-## Modello Logico
-![Modello Logico](https://user-images.githubusercontent.com/28182917/127783532-77346d46-6455-4b68-9afe-8c20c450404b.jpeg)
-
-Nel Lato Back-End sono implementate anche operazioni di interrogazione, cancellazione e modifica dei record del Database.
+# Installazione
 
 # Riferimenti
 
