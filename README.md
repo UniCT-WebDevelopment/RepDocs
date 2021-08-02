@@ -3,25 +3,9 @@
 RepDocs è un sito web dove tutti gli utenti registrati possono caricare file esclusivamente in formato pdf.
 I file possono essere documenti di qualsiasi tipologia e su qualsiasi argomento.
 L'Utilizzo di RepDocs è molto intuitivo, pertanto non verrà fornita una Guida dettagliata.<br>
-Di seguito la pagina Index, la pagina Area Utenti, la pagina SearchDoc e la Pagina MyRepDocs.
-
-## Index
+Una volta effettuato l'accesso cliccare su RepDocs a sinistra del Menu per ritornare all'Area Utenti<br><br>
 
 ![Index](https://user-images.githubusercontent.com/28182917/127782634-ebf674e0-15bd-49a6-8f2f-bdd66e53b87d.JPG)
-
-## Area Utenti
-
-![Area Utenti](https://user-images.githubusercontent.com/28182917/127782684-8c4c41d4-a449-4ce4-8268-9b5109543e03.JPG)
-
-## SearchDoc
-
-![SearchDoc](https://user-images.githubusercontent.com/28182917/127782798-80381d1e-d435-44d1-9b64-4b405a630c1a.JPG)
-Clicca su RepDocs che vi è a sinistra del Menu per ritornare alla pagina Area Utenti
-
-## MyRepDocs
-
-![MyRepDocs](https://user-images.githubusercontent.com/28182917/127782738-8caa65f5-76c0-44fd-818f-8417017d5f47.JPG)
-Clicca su RepDocs che vi è a sinistra del Menu per ritornare alla pagina Area Utenti
 
 # Realizzazione
 
