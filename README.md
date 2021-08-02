@@ -19,12 +19,16 @@ Infine, nell'Area Utenti spuntano gli ultimi 8 documenti caricati e gli 8 docume
 <b>SQL</b> (Creazione Modello Fisico DB Relazionale).
 
 # Strumenti Utilizzati
-<b>APACHE HTTP SERVER</b><br><br>
+<b>APACHE HTTP SERVER 2.4.47</b><br><br>
 <b>MySQL Ver 15.1 Distrib 10.4.19-MariaDB</b><br><br>
 <b>PHP 8.0.6</b>
 <b>Filezilla</b><br>
 
 # Installazione
+
+Per poter Installare RepDocs in locale è necessario un Web Server, installare PHP Ver 8.0.6 e MySQL Ver 15.1 Distrib 10.4.19-MariaDB.
+Inoltre RepDocs ha bisogno del software Filezilla per il caricamento dei documenti.
+RepDocs possiede un file di configurazione scritto in PHP che consente la creazione automatica del DB di RepDocs e delle sue tabelle.
 
 # Riferimenti
 
