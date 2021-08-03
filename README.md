@@ -27,7 +27,6 @@ Infine, nell'Area Utenti spuntano gli ultimi 8 documenti caricati e gli 8 docume
 # Installazione
 
 Per poter Installare RepDocs in locale è necessario un Web Server, installare PHP Ver 8.0.6 e MySQL Ver 15.1 Distrib 10.4.19-MariaDB.
-Inoltre RepDocs ha bisogno del software Filezilla per il caricamento dei documenti.
 RepDocs possiede un file di configurazione scritto in PHP che consente la creazione automatica del DB di RepDocs e delle sue tabelle.
 Per permettere a RepDocs l'invio delle Mail di Recupero Password bisogna modificare il file php.ini e sendmail.ini come riportato nella seguente guida:
 
