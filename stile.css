@@ -1,0 +1,422 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: rgb(250, 235, 215);
+    z-index: 1000;
+}
+
+.inexist {
+    display: block;
+    margin-top: 100px;
+    text-align: center;
+    font-size: 60px;
+}
+
+.hTitle {
+    color: orange;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.btnContainer {
+    width: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.topnav #myLinks {
+    display: none;
+}
+
+.topnav a {
+    display: block;
+    color: orange;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.topnav a:hover {
+    background-color: rgb(255, 110, 0);
+    color: white;
+}
+
+.label {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: rgb(250, 235, 215);
+}
+
+.name {
+    margin-top: 10px;
+    margin-left: 8px;
+    margin-bottom: 11px;
+    font-size: 25px;
+    font-weight: bold;
+    color: orange;
+}
+
+.lMenu {
+    list-style-type: none;
+    float: right;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 11px;
+    padding: 0;
+}
+
+.lMenu>li {
+    font-size: 25px;
+    display: inline;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.lMenu>li:hover {
+    font-weight: bold;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dMenuUser {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: end;
+}
+
+.btn {
+    padding: 8px;
+    margin-left: 1%;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.pres {
+    margin-top: 2%;
+    font-size: 25px;
+    text-align: justify;
+}
+
+.footer {
+    width: 100%;
+    right: 0;
+    left: 0;
+    height: 32px;
+    background-color: black;
+}
+
+.modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    position: fixed;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.modalContainer {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: 175px;
+}
+
+hr {
+    border: 1px solid orange;
+    width: 50%;
+    margin: auto;
+}
+
+.textbox {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid orange;
+    border-radius: 10px;
+    width: 50%;
+    background-color: rgba(250, 235, 215, 0.5);
+}
+
+.fbtn {
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.close {
+    color: gray;
+    float: right;
+    font-size: 28px;
+    margin-top: 1%;
+    margin-right: 1%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.docs>div {
+    border: 1px solid rgb(128, 128, 128);
+    background-color: white;
+    border-radius: 10px;
+}
+
+.imgDoc {
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    border-radius: 10px;
+}
+
+.titleDoc {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.docbtn {
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: orange;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+
+.docDescr {
+    text-align: justify;
+    font-size: 18px;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.textbox:focus {
+    border: none;
+}
+
+.error {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+}
+
+.load {
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: green;
+    font-size: 20px;
+}
+
+.succ {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: green;
+    font-size: 20px;
+}
+
+.mySlides {
+    width: 100%;
+    height:auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.topnav #myLinks {
+    margin-top: 50px;
+}
+
+.welcome {
+    background-image: url('img/UserArea.jpg');
+    margin-bottom: 45px;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    opacity: 0.80;
+}
+
+
+/* Media Query */
+
+
+/* Desktop */
+
+@media only screen and (min-width: 700px) {
+    .topnav {
+        display: none;
+    }
+    
+    .docs {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-gap: 2px;
+    }
+    
+    .slog {
+        color: white;
+        text-shadow: 5px 5px 8px black;
+        font-size: 40px;
+        text-align: center;
+        font-weight: bold;
+    }
+        
+    .tst {
+        font-size: 20px;
+    }
+
+    .dMenu {
+        display: block;
+    }
+    
+    .topMenu {
+        display: none;
+    }
+}
+
+
+/* Desktop */
+
+/* Tablet */
+
+@media only screen and (min-width: 350px) and (max-width: 699px) {
+    .slog {
+        color: white;
+        text-shadow: 5px 5px 8px black;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .docs {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 2px;
+    }
+
+    .tst {
+        font-size: 12px;
+    }
+
+    .topnav {
+        border-radius: 5px;
+        display: block;
+        overflow: hidden;
+        background-color: rgb(255, 240, 200);
+    }
+    
+    .topMenu {
+        display: block;
+    }
+
+    .dMenu {
+        display: none;
+    }
+}
+
+/* Tablet */
+
+
+/* Mobile */
+
+@media only screen and (max-width: 349px) {
+    .slog {
+        color: white;
+        text-shadow: 5px 5px 8px black;
+        font-size: 12px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .docs {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap: 5px;
+    }
+        
+    .tst {
+        font-size: 10px;
+    }
+
+    .topnav {
+        border-radius: 5px;
+        overflow: hidden;
+        display: block;
+        background-color: rgb(255, 240, 200);
+    }
+
+    .topMenu {
+        display: block;
+    }
+    
+    .dMenu {
+        display: none;
+    }
+}
+
+/* Mobile */
+
+
+/* Media Query */
