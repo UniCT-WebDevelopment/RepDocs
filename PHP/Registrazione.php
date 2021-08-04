@@ -1,72 +1,72 @@
 <?php
-    require "ConnessioneDB.php";
+    require "connessioneDB.php";
 
     session_start();
     
-    $E_Mail = NULL;
-    $Nome = NULL;
-    $Cognome = NULL;
-    $Data_Nascita = NULL;
-    $Password = NULL;
-    $Empty = false;
-    $Invalid_Mail = false;
+    $email = NULL;
+    $nome = NULL;
+    $cognome = NULL;
+    $data_nascita = NULL;
+    $password = NULL;
+    $empty = false;
+    $invalid_mail = false;
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        if(($_POST["E_Mail"] == NULL) || (filter_var($_POST["E_Mail"], FILTER_VALIDATE_EMAIL) == false)){
-            $Empty = true;
+        if(($_POST["email"] == NULL) || (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false)){
+            $empty = true;
 
-            if(filter_var($_POST["E_Mail"], FILTER_VALIDATE_EMAIL) == false){
-                $Invalid_Mail = true;
+            if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
+                $invalid_mail = true;
             }
         }
         else{
-            $E_Mail = $_POST["E_Mail"];
+            $email = $_POST["email"];
         }
 
-        if($_POST["Nome"] == NULL){
-            $Empty = true;
+        if($_POST["nome"] == NULL){
+            $empty = true;
         }
         else{
-            $Nome = $_POST["Nome"];
+            $nome = $_POST["nome"];
         }
 
-        if($_POST["Cognome"] == NULL){
-            $Empty = true;
+        if($_POST["cognome"] == NULL){
+            $empty = true;
         }
         else{
-            $Cognome = $_POST["Cognome"];
+            $cognome = $_POST["cognome"];
         }
 
-        if($_POST["DataNascita"] == NULL){
-            $Empty = true;
+        if($_POST["dataNascita"] == NULL){
+            $empty = true;
         }
         else{
-            $Data_Nascita = $_POST["DataNascita"];
+            $data_nascita = $_POST["dataNascita"];
         }
 
-        if($_POST["Password"] == NULL){
-            $Empty = true;
+        if($_POST["password"] == NULL){
+            $empty = true;
         }
         else{
-            $Password = $_POST["Password"];
+            $password = $_POST["password"];
         }
     }
     
-    if($Empty == false){
-        $stmt = $conn->prepare("INSERT INTO utente(E_Mail, Nome, Cognome, Data_Nascita, Pass) VALUES (:E_Mail, :Nome, :Cognome, :Data_Nascita, :Pass)");
-        $stmt->bindParam(":E_Mail",$E_Mail);
-        $stmt->bindParam(":Nome",$Nome);
-        $stmt->bindParam(":Cognome",$Cognome);
-        $stmt->bindParam(":Data_Nascita",$Data_Nascita);
-        $stmt->bindParam(":Pass",$Password);
+    if($empty == false){
+        $stmt = $conn->prepare("INSERT INTO utente(E_Mail, Nome, Cognome, Data_Nascita, Pass) VALUES (:email, :nome, :cognome, :data_nascita, :pass)");
+        $stmt->bindParam(":email",$email);
+        $stmt->bindParam(":nome",$nome);
+        $stmt->bindParam(":cognome",$cognome);
+        $stmt->bindParam(":data_nascita",$data_nascita);
+        $stmt->bindParam(":pass",$password);
         $stmt->execute();
-        $_SESSION["E_Mail"] = $E_Mail;
-        $_SESSION["Password"] = $Password;
+        $_SESSION["email"] = $email;
+        $_SESSION["password"] = $password;
         echo "Ok";
     }
     else{
-        if(($Invalid_Mail == true) && ($_POST["E_Mail"] != NULL)){
+        if(($invalid_mail == true) && ($_POST["email"] != NULL)){
             echo "ErrMail";
         }
         else{

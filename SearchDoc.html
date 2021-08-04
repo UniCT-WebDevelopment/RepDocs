@@ -2,60 +2,60 @@
 <html>
     <head>
         <title>Ricerca</title>
-        <link rel="stylesheet" type="text/css" href="Stile.css">
+        <link rel="stylesheet" type="text/css" href="stile.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
     </head>
 
     <body>
 
-        <div class="Menu">
-            <div onclick="AreaUtenti()" style="cursor: pointer;" class="Name">RepDocs</div>
-            <div class="DMenu">
-                <div class="DMenuUser">
+        <div class="menu">
+            <div onclick="areaUtenti()" style="cursor: pointer;" class="name">RepDocs</div>
+            <div class="dMenu">
+                <div class="dMenuUser">
     
                     <div>
-                        <form action="PHP/SearchDoc.php" method="POST" style="width:100%">
-                            <input class="TextBox Tst" style="display: inline; width: 50%; font-size: 13px;" type="text" name="Ricerca" placeholder="Cerca Documenti">
+                        <form action="php/searchDoc.php" method="POST" style="width:100%">
+                            <input class="textbox tst" style="display: inline; width: 50%; font-size: 13px;" type="text" name="ricerca" placeholder="Cerca Documenti">
                             <input type="submit" class="btn" style="color: white; background-color: rgba(255, 166, 0, 0.5); border: 2px solid orange; margin-left: 10px;" value="Cerca">
                         </form>
                     </div>
     
                     <div>
-                        <ul class="LMenu">
-                            <li><a href="MyRepDocs.html">MyRepDocs</a></li>
-                            <li onclick="Exit()">Esci</li>
+                        <ul class="lMenu">
+                            <li><a href="myRepDocs.html">MyRepDocs</a></li>
+                            <li onclick="exit()">Esci</li>
                         </ul>
                     </div>
                       
                 </div>
             </div>
     
-            <div class="TopMenu">
-                <a style="float: right; font-size: 25px; color: orange; margin-right: 8px; padding: 0; cursor:pointer; margin-top: 10px; margin-bottom: 11px;" class="icon" onclick="ShowMenu()"><i class="fa fa-bars"></i></a>
+            <div class="topMenu">
+                <a href="#" style="float: right; font-size: 25px; color: orange; margin-right: 8px; padding: 0; cursor:pointer; margin-top: 10px; margin-bottom: 11px;" class="icon" onclick="showMenu()"><i class="fa fa-bars"></i></a>
             </div>
         </div>
 
         <div class="topnav">
-            <div id="MyLinks">
+            <div id="myLinks">
                 <div style="display: grid; grid-template-columns: auto;">
-                    <form action="PHP/SearchDoc.php" method="POST">
-                        <input class="TextBox Tst" style="float: left;" type="text" name="Ricerca" placeholder="Cerca Documenti">
+                    <form action="php/searchDoc.php" method="POST">
+                        <input class="textbox tst" style="float: left;" type="text" name="ricerca" placeholder="Cerca Documenti">
                         <input type="submit" class="btn" style="color: white; background-color: rgba(255, 166, 0, 0.5); border: 2px solid orange; margin-left: 10px; margin-top: 0;" value="Cerca">
                     </form>
                 </div>
-                <a href="MyRepDocs.html">MyRepDocs</a>
-                <a onclick="Exit()">Esci</a>
+                <a href="myRepDocs.html">MyRepDocs</a>
+                <a onclick="exit()">Esci</a>
             </div>
         </div>
         
-        <h1 class="HTitle" style="text-align: center; margin-top: 65px; font-size: 60px;">Documenti Trovati</h1>
-        <p id="NOT_FOUND" class="Inexist">Nessun Documento Trovato</p>
+        <h1 class="hTitle" style="text-align: center; margin-top: 65px; font-size: 60px;">Documenti Trovati</h1>
+        <p id="not_found" class="inexist">Nessun Documento Trovato</p>
         
-        <div id="DocSearch" class="Docs">
+        <div id="docSearch" class="docs">
         </div>
 
-        <div class="Footer"><p class="Name" style="text-align: center;">RepDocs</p></div>
+        <div class="footer"><p class="name" style="text-align: center;">RepDocs</p></div>
         
-        <script type="application/javascript" src="SearchDoc.js"></script>
+        <script type="application/javascript" src="searchDoc.js"></script>
     </body>
 </html>

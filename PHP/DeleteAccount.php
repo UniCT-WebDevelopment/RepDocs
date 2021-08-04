@@ -1,15 +1,15 @@
 <?php
-    require "ConnessioneDB.php";
+    require "connessioneDB.php";
 
     session_start();
 
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
-        $E_Mail = $_SESSION["E_Mail"];
-        $stmt = $conn->prepare("DELETE FROM documento WHERE E_Mail = :E_Mail");
-        $stmt->bindParam(":E_Mail", $E_Mail, PDO::PARAM_STR);
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
+        $email = $_SESSION["email"];
+        $stmt = $conn->prepare("DELETE FROM documento WHERE E_Mail = :email");
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
-        $stmt = $conn->prepare("DELETE FROM utente WHERE E_Mail = :E_Mail");
-        $stmt->bindParam(":E_Mail", $E_Mail, PDO::PARAM_STR);
+        $stmt = $conn->prepare("DELETE FROM utente WHERE E_Mail = :email");
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
         session_destroy();
         echo "Ok";    

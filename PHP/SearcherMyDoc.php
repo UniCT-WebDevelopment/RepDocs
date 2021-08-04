@@ -1,22 +1,22 @@
 <?php
 
-    require "ConnessioneDB.php";
+    require "connessioneDB.php";
 
     session_start();
 
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
-            if($_POST["Ricerca"] != NULL){
-                $Ricerca = $_POST["Ricerca"];
-                $stmt = $conn->prepare("SELECT ID, Percorso, Titolo, Descrizione FROM documento WHERE (Titolo LIKE '%".$Ricerca."%') AND (E_Mail = :E_Mail)");
-                $stmt->bindParam(":E_Mail", $_SESSION["E_Mail"]);
-                $stmt->execute();
+            if($_POST["ricerca"] != NULL){
+                $ricerca = $_POST["ricerca"];
+                $stmt = $conn->prepare("SELECT ID, Percorso, Titolo, Descrizione FROM documento WHERE (Titolo LIKE '%".$ricerca."%') AND (E_Mail = :email)");
+                $stmt->bindParam(":email", $_SESSION["email"]);
                 
-                if($stmt->setFetchMode(PDO::FETCH_ASSOC) == true){
-                    $Result = $stmt->fetchAll();
-                    echo json_encode($Result);
-                    unset($_SESSION["Ricerca"]);
+                if(($stmt->execute()) == true){
+                    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                    $result = $stmt->fetchAll();
+                    echo json_encode($result);
+                    unset($_SESSION["ricerca"]);
                 }
                 else{
                     echo "Errore";
@@ -25,9 +25,6 @@
             else {
                 echo "Vuoto";
             }
-        }
-        else{
-            echo "Errore";
         }
     }
     else{

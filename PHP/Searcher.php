@@ -1,20 +1,20 @@
 <?php
 
-    require "ConnessioneDB.php";
+    require "connessioneDB.php";
 
     session_start();
 
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
 
-        if(isset($_SESSION["Ricerca"]) == true){
-            $Ricerca = $_SESSION["Ricerca"];
-            $stmt = $conn->prepare("SELECT ID, Percorso, Titolo, Descrizione FROM documento WHERE Titolo LIKE '%".$Ricerca."%'");
+        if(isset($_SESSION["ricerca"]) == true){
+            $ricerca = $_SESSION["ricerca"];
+            $stmt = $conn->prepare("SELECT ID, Percorso, Titolo, Descrizione FROM documento WHERE Titolo LIKE '%".$ricerca."%'");
             $stmt->execute();
             
             if($stmt->setFetchMode(PDO::FETCH_ASSOC) == true){
-                $Result = $stmt->fetchAll();
-                echo json_encode($Result);
-                unset($_SESSION["Ricerca"]);
+                $result = $stmt->fetchAll();
+                echo json_encode($result);
+                unset($_SESSION["ricerca"]);
             }
             else{
                 echo "Errore";

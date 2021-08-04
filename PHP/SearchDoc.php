@@ -1,14 +1,14 @@
 <?php
     session_start();
 
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
         if($_SERVER["REQUEST_METHOD"] == "POST"){
-            if($_POST["Ricerca"] != NULL){
-                $_SESSION["Ricerca"] = $_POST["Ricerca"];
-                header("location: ../SearchDoc.html");
+            if($_POST["ricerca"] != NULL){
+                $_SESSION["ricerca"] = $_POST["ricerca"];
+                header("location: ../searchDoc.html");
             }
             else{
-                header("location: ../AreaUtenti.html");
+                header("location: ../areaUtenti.html");
             }
         }
     }

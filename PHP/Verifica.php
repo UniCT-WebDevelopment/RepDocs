@@ -3,7 +3,7 @@
 
     $connect = false;
 
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
         $connect = true;
     }
     

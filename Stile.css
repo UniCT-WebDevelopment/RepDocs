@@ -1,9 +1,9 @@
-a{
+a {
     text-decoration: none;
     color: black;
 }
 
-.Menu {
+.menu {
     position: fixed;
     width: 100%;
     top: 0;
@@ -15,14 +15,14 @@ a{
     z-index: 1000;
 }
 
-.Inexist{
+.inexist {
     display: block;
     margin-top: 100px;
     text-align: center;
     font-size: 60px;
 }
 
-.HTitle{
+.hTitle {
     color: orange;
     font-size: 40px;
     font-weight: bold;
@@ -31,18 +31,18 @@ a{
     text-align: center;
 }
 
-.BtnContainer {
+.btnContainer {
     width: 50%;
     margin: auto;
     display: grid;
     grid-template-columns: auto auto;
 }
 
-.topnav #MyLinks{
+.topnav #myLinks {
     display: none;
 }
 
-.topnav a{
+.topnav a {
     display: block;
     color: orange;
     padding: 14px 16px;
@@ -52,12 +52,12 @@ a{
     cursor: pointer;
 }
 
-.topnav a:hover{
+.topnav a:hover {
     background-color: rgb(255, 110, 0);
     color: white;
 }
 
-.label{
+.label {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
@@ -69,7 +69,7 @@ body {
     background-color: rgb(250, 235, 215);
 }
 
-.Name {
+.name {
     margin-top: 10px;
     margin-left: 8px;
     margin-bottom: 11px;
@@ -78,7 +78,7 @@ body {
     color: orange;
 }
 
-.LMenu {
+.lMenu {
     list-style-type: none;
     float: right;
     margin-right: 5px;
@@ -87,14 +87,14 @@ body {
     padding: 0;
 }
 
-.LMenu>li {
+.lMenu>li {
     font-size: 25px;
     display: inline;
     cursor: pointer;
     margin-right: 10px;
 }
 
-.LMenu>li:hover {
+.lMenu>li:hover {
     font-weight: bold;
 }
 
@@ -112,7 +112,7 @@ body {
     }
 }
 
-.DMenuUser{
+.dMenuUser {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: end;
@@ -129,13 +129,13 @@ body {
     font-size: 16px;
 }
 
-.Pres {
+.pres {
     margin-top: 2%;
     font-size: 25px;
     text-align: justify;
 }
 
-.Footer {
+.footer {
     width: 100%;
     right: 0;
     left: 0;
@@ -143,7 +143,7 @@ body {
     background-color: black;
 }
 
-.Modal {
+.modal {
     display: none;
     width: 100%;
     height: 100%;
@@ -156,7 +156,7 @@ body {
     background-color: rgb(0, 0, 0, 0.5);
 }
 
-.ModalContainer {
+.modalContainer {
     width: 80%;
     margin: auto;
     background-color: white;
@@ -171,7 +171,7 @@ hr {
     margin: auto;
 }
 
-.TextBox {
+.textbox {
     display: block;
     margin: auto;
     padding: 10px;
@@ -181,7 +181,7 @@ hr {
     background-color: rgba(250, 235, 215, 0.5);
 }
 
-.Fbtn {
+.fbtn {
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
@@ -202,28 +202,28 @@ hr {
     cursor: pointer;
 }
 
-.Docs>div {
+.docs>div {
     border: 1px solid rgb(128, 128, 128);
     background-color: white;
     border-radius: 10px;
 }
 
-.ImgDoc {
+.imgDoc {
     width: 100%;
-    height: 230px;
+    height: 300px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% 100%;
+    background-size: 100%;
     border-radius: 10px;
 }
 
-.TitleDoc {
+.titleDoc {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
 }
 
-.Docbtn {
+.docbtn {
     width: 100%;
     padding: 5px;
     border-radius: 10px;
@@ -233,21 +233,21 @@ hr {
     font-size: 15px;
 }
 
-.DocDescr {
+.docDescr {
     text-align: justify;
     font-size: 18px;
     margin: 0;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
 
-.TextBox:focus{
+.textbox:focus {
     border: none;
 }
 
-.Error{
+.error {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -256,7 +256,7 @@ hr {
     font-size: 20px;
 }
 
-.Load{
+.load {
     display: none;
     text-align: center;
     margin-top: 10px;
@@ -266,7 +266,7 @@ hr {
     font-size: 20px;
 }
 
-.Succ{
+.succ {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -283,12 +283,12 @@ hr {
     background-size: 100%;
 }
 
-.topnav #MyLinks{
+.topnav #myLinks {
     margin-top: 50px;
 }
 
-.Welcome {
-    background-image: url('Immagini/UserArea.jpg');
+.welcome {
+    background-image: url('img/UserArea.jpg');
     margin-bottom: 45px;
     width: 100%;
     height: auto;
@@ -305,18 +305,17 @@ hr {
 /* Desktop */
 
 @media only screen and (min-width: 700px) {
-    .topnav{
+    .topnav {
         display: none;
-        background-color: rgb(250, 235, 215);
     }
     
-    .Docs {
+    .docs {
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
-        grid-gap: 10px;
+        grid-gap: 2px;
     }
     
-    .Slog {
+    .slog {
         color: white;
         text-shadow: 5px 5px 8px black;
         font-size: 40px;
@@ -324,15 +323,15 @@ hr {
         font-weight: bold;
     }
         
-    .Tst {
+    .tst {
         font-size: 20px;
     }
 
-    .DMenu{
+    .dMenu {
         display: block;
     }
     
-    .TopMenu{
+    .topMenu {
         display: none;
     }
 }
@@ -343,7 +342,7 @@ hr {
 /* Tablet */
 
 @media only screen and (min-width: 350px) and (max-width: 699px) {
-    .Slog {
+    .slog {
         color: white;
         text-shadow: 5px 5px 8px black;
         font-size: 20px;
@@ -351,27 +350,28 @@ hr {
         font-weight: bold;
     }
     
-    .Docs {
+    .docs {
         display: grid;
         grid-template-columns: 50% 50%;
-        grid-gap: 10px;
+        grid-gap: 2px;
     }
 
-    .Tst {
+    .tst {
         font-size: 12px;
     }
 
-    .topnav{
+    .topnav {
+        border-radius: 5px;
         display: block;
         overflow: hidden;
-        background-color: rgb(250, 235, 215);
+        background-color: rgb(255, 240, 200);
     }
     
-    .TopMenu{
+    .topMenu {
         display: block;
     }
 
-    .DMenu{
+    .dMenu {
         display: none;
     }
 }
@@ -382,7 +382,7 @@ hr {
 /* Mobile */
 
 @media only screen and (max-width: 349px) {
-    .Slog {
+    .slog {
         color: white;
         text-shadow: 5px 5px 8px black;
         font-size: 12px;
@@ -390,27 +390,28 @@ hr {
         font-weight: bold;
     }
     
-    .Docs {
+    .docs {
         display: grid;
         grid-template-columns: 100%;
-        grid-gap: 10px;
+        grid-gap: 5px;
     }
         
-    .Tst {
+    .tst {
         font-size: 10px;
     }
 
-    .topnav{
+    .topnav {
+        border-radius: 5px;
         overflow: hidden;
         display: block;
-        background-color: rgb(250, 235, 215);
+        background-color: rgb(255, 240, 200);
     }
 
-    .TopMenu{
+    .topMenu {
         display: block;
     }
     
-    .DMenu{
+    .dMenu {
         display: none;
     }
 }

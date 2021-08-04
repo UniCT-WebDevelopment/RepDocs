@@ -1,43 +1,43 @@
 <?php
-    require 'ConnessioneDB.php';
+    require 'connessioneDB.php';
     
     session_start();
     
-    $E_Mail = NULL;
-    $Invalid_Mail = false;
-    $Password = NULL;
-    $Empty = false;
+    $email = NULL;
+    $invalid_mail = false;
+    $password = NULL;
+    $empty = false;
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        if(($_POST["E_Mail"] == NULL) || (filter_var($_POST["E_Mail"], FILTER_VALIDATE_EMAIL) == false)){
-            $Empty = true;
+        if(($_POST["email"] == NULL) || (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false)){
+            $empty = true;
 
-            if(filter_var($_POST["E_Mail"], FILTER_VALIDATE_EMAIL) == false){
-                $Invalid_Mail = true;
+            if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
+                $invalid_mail = true;
             }
         }
         else{
-            $E_Mail = $_POST["E_Mail"];
+            $email = $_POST["email"];
         }
 
-        if($_POST["Password"] == NULL){
-            $Empty = true;
+        if($_POST["password"] == NULL){
+            $empty = true;
         }
         else{
-            $Password = $_POST["Password"];
+            $password = $_POST["password"];
         }
     }
 
-    if($Empty == false){ 
-        $stmt = $conn->prepare("SELECT Pass FROM utente WHERE E_Mail = :E_Mail");
-        $stmt->bindParam(':E_Mail',$E_Mail);
+    if($empty == false){ 
+        $stmt = $conn->prepare("SELECT Pass FROM utente WHERE E_Mail = :email");
+        $stmt->bindParam(':email',$email);
         $stmt->execute();
         if($stmt->setFetchMode(PDO::FETCH_ASSOC) == true){
             $Result = $stmt->fetchAll();
-            if($Result[0]["Pass"] == $Password){
-                $_SESSION["E_Mail"] = $E_Mail;
-                $_SESSION["Password"] = $Password;
+            if($Result[0]["Pass"] == $password){
+                $_SESSION["email"] = $email;
+                $_SESSION["password"] = $password;
                 echo "Ok";
             }
             else{
@@ -47,7 +47,7 @@
     }
 
     else{
-        if(($Invalid_Mail == true) && ($_POST["E_Mail"] != NULL)){
+        if(($invalid_mail == true) && ($_POST["email"] != NULL)){
             echo "ErrMail";
         }
         else{

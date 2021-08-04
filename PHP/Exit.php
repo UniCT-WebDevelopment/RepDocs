@@ -1,12 +1,12 @@
 <?php
     session_start();
     
-    $Success = false;
+    $success = false;
     
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
         session_destroy();
-        $Success = true;
+        $success = true;
     }
 
-    echo $Success;
+    echo $success;
 ?>

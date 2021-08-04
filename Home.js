@@ -1,239 +1,237 @@
 let i=0;
 
-const ModalAccess = document.getElementById("AccessModal");
-const ModalResolve = document.getElementById("ResolveModal");
-const ModalRegister = document.getElementById("RegisterModal");
+const MODALACCESS = document.getElementById("accessModal");
+const MODALRESOLVE = document.getElementById("resolveModal");
+const MODALREGISTER = document.getElementById("registerModal");
 
 document.body.onload = function(){
-    Control();
-    SlideShow();
-    Verify();
+    control();
+    slideshow();
+    verify();
 };
 
-function ShowMenu(){
-    const Menu = document.getElementById("MyLinks");
-    if(Menu.style.display === "block"){
-        Menu.style.display = "none";
+function showMenu(){
+    const MENU = document.getElementById("myLinks");
+    if(MENU.style.display === "block"){
+        MENU.style.display = "none";
     }
     else{
-        Menu.style.display = "block";
+        MENU.style.display = "block";
     }
 }
 
-function SlideShow(){
-    var Slides = document.getElementsByClassName("mySlides");
-    for(let i=0; i<Slides.length; i++){
-        Slides[i].style.display = "none";
+function slideshow(){
+    var slides = document.getElementsByClassName("mySlides");
+    for(let i=0; i<slides.length; i++){
+        slides[i].style.display = "none";
     }
-    Slides[i%3].style.display="block";
+    slides[i%3].style.display="block";
     setInterval(function(){
-        for(let i=0; i<Slides.length; i++){
-            Slides[i].style.display = "none";
+        for(let i=0; i<slides.length; i++){
+            slides[i].style.display = "none";
         }    
-        Slides[i%3].style.display="block";
+        slides[i%3].style.display="block";
         i++;
     }, 3000);
 }
 
-function Control(){
-    const Invio = new XMLHttpRequest();
-    Invio.onload = function(){
-        ControlTable();
+function control(){
+    const INVIO = new XMLHttpRequest();
+    INVIO.onload = function(){
+        controlTable();
     }
 
-    Invio.open("GET", "PHP/AUTOM_DB.php", true);
-    Invio.send();
+    INVIO.open("GET", "php/automDB.php", true);
+    INVIO.send();
 }
 
-function ControlTable(){
-    const Invio = new XMLHttpRequest();
-    Invio.onload = function(){
-    }
+function controlTable(){
+    const INVIO = new XMLHttpRequest();
 
-    Invio.open("GET", "PHP/AUTOM_TABLE.php", true);
-    Invio.send();
+    INVIO.open("GET", "php/automTable.php", true);
+    INVIO.send();
 }
 
-function Accedi(){
-    document.getElementsByClassName("Load")[0].style.display = "block";
-    document.getElementById("AccessErr").innerHTML = "";
+function accedi(){
+    document.getElementsByClassName("load")[0].style.display = "block";
+    document.getElementById("accessErr").innerHTML = "";
 
-    var E_Mail = document.getElementsByName("EMail")[0].value;
-    var Password = document.getElementsByName("Password")[0].value;
+    var email = document.getElementsByName("email")[0].value;
+    var password = document.getElementsByName("password")[0].value;
 
-    const Invio = new XMLHttpRequest();
-    Invio.onload = function(){
-        document.getElementsByClassName("Load")[0].style.display = "none";
+    const INVIO = new XMLHttpRequest();
+    INVIO.onload = function(){
+        document.getElementsByClassName("load")[0].style.display = "none";
 
-        if(Invio.responseText == "Ok"){
-            location.href = "AreaUtenti.html";
+        if(INVIO.responseText == "Ok"){
+            location.href = "areaUtenti.html";
         }
-        else if(Invio.responseText == "Err"){
-            document.getElementById("AccessErr").innerHTML = "Credenziali non corrette o Mancanti";
+        else if(INVIO.responseText == "Err"){
+            document.getElementById("accessErr").innerHTML = "Credenziali non corrette o Mancanti";
         }
-        else if(Invio.responseText == "ErrMail"){
-            document.getElementById("AccessErr").innerHTML = "E-Mail Non Valida";
+        else if(INVIO.responseText == "ErrMail"){
+            document.getElementById("accessErr").innerHTML = "E-Mail Non Valida";
         }
         else{
-            document.getElementById("AccessErr").innerHTML = "Account Inesistente";
+            document.getElementById("accessErr").innerHTML = "Account Inesistente";
         }
     }
 
-    Invio.open("POST","PHP/Accesso.php", true);
-    Invio.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    Invio.send("E_Mail=" + E_Mail + "&Password=" + Password);  
+    INVIO.open("POST","php/accesso.php", true);
+    INVIO.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    INVIO.send("email=" + email + "&password=" + password);  
 }
 
-function Registrazione(){
-    document.getElementsByClassName("Load")[2].style.display = "block";
-    document.getElementById("RegisterErr").innerHTML = "";
+function registrazione(){
+    document.getElementsByClassName("load")[2].style.display = "block";
+    document.getElementById("registerErr").innerHTML = "";
 
-    var E_Mail = document.getElementsByName("EMail")[1].value;
-    var Nome = document.getElementsByName("Nome")[0].value;
-    var Cognome = document.getElementsByName("Cognome")[0].value;
-    var Data_NascitaC = new Date(document.getElementsByName("DataNascita")[0].value);
-    var Data_Nascita = document.getElementsByName("DataNascita")[0].value;
-    var Password = document.getElementsByName("Password")[1].value;
-    var Data_Attuale = new Date();
-    var Dif = Data_Attuale.getFullYear() - Data_NascitaC.getFullYear()
+    var email = document.getElementsByName("email")[1].value;
+    var nome = document.getElementsByName("nome")[0].value;
+    var cognome = document.getElementsByName("cognome")[0].value;
+    var data_nascitac = new Date(document.getElementsByName("dataNascita")[0].value);
+    var data_nascita = document.getElementsByName("dataNascita")[0].value;
+    var password = document.getElementsByName("password")[1].value;
+    var data_attuale = new Date();
+    var dif = data_attuale.getFullYear() - data_nascitac.getFullYear()
     
-    if(Dif >= 15){
-        const Invio = new XMLHttpRequest();
-        Invio.onload = function(){
-            document.getElementsByClassName("Load")[2].style.display = "none";
-    
-            if(Invio.responseText == "Ok"){
+    if(dif >= 15){
+        const INVIO = new XMLHttpRequest();
+        INVIO.onload = function(){
+            document.getElementsByClassName("load")[2].style.display = "none";
+
+            if(INVIO.responseText == "Ok"){
                 location.href = "AreaUtenti.html";
             }
-            else if(Invio.responseText == "Err"){
-                document.getElementById("RegisterErr").innerHTML = "Dati Mancanti";
+            else if(INVIO.responseText == "Err"){
+                document.getElementById("registerErr").innerHTML = "Dati Mancanti";
             }
-            else if(Invio.responseText == "ErrMail"){
-                document.getElementById("RegisterErr").innerHTML = "E-Mail Non Valida";
+            else if(INVIO.responseText == "ErrMail"){
+                document.getElementById("registerErr").innerHTML = "E-Mail Non Valida";
             }
             else{
-                document.getElementById("RegisterErr").innerHTML = "Errore";
+                document.getElementById("registerErr").innerHTML = "Errore";
             }
         }
     
-        Invio.open("POST","PHP/Registrazione.php", true);
-        Invio.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        Invio.send("E_Mail=" + E_Mail + "&Nome=" + Nome + "&Cognome=" + Cognome + "&DataNascita=" + Data_Nascita + "&Password=" + Password);      
+        INVIO.open("POST","php/registrazione.php", true);
+        INVIO.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        INVIO.send("email=" + email + "&nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + data_nascita + "&password=" + password);      
     }
     else{
-        document.getElementsByClassName("Load")[2].style.display = "none";
-        document.getElementById("RegisterErr").innerHTML = "Devi avere almeno 15 anni per iscriverti";
+        document.getElementsByClassName("load")[2].style.display = "none";
+        document.getElementById("registerErr").innerHTML = "Devi avere almeno 15 anni per iscriverti";
     }
 }
 
-function Accesso(){
-    ModalAccess.style.display = "block";
+function accesso(){
+    MODALACCESS.style.display = "block";
 }
 
-function Correggi(){
-    document.getElementsByClassName("Load")[0].style.display = "block";
-    document.getElementById("AccessErr").innerHTML = "";
-    document.getElementsByName("Inv_Pass")[0].value = "";
-    document.getElementsByName("Nuova_Password")[0].value = "";
+function correggi(){
+    document.getElementsByClassName("load")[0].style.display = "block";
+    document.getElementById("accessErr").innerHTML = "";
+    document.getElementsByName("invpass")[0].value = "";
+    document.getElementsByName("nuovapassword")[0].value = "";
 
-    var E_Mail = document.getElementsByName("EMail")[0].value;
+    var email = document.getElementsByName("email")[0].value;
 
-    const Invio = new XMLHttpRequest();
-    Invio.onload = function(){
-        document.getElementsByClassName("Load")[0].style.display = "none";
+    const INVIO = new XMLHttpRequest();
+    INVIO.onload = function(){
+        document.getElementsByClassName("load")[0].style.display = "none";
 
-        if(Invio.responseText == "Ok"){
-            ModalAccess.style.display = "none";
-            ModalResolve.style.display = "block";
+        if(INVIO.responseText == "Ok"){
+            MODALACCESS.style.display = "none";
+            MODALRESOLVE.style.display = "block";
         }
 
-        else if(Invio.responseText == "NOT_FOUND"){
-            document.getElementById("AccessErr").innerHTML = "E-Mail Inesistente";
+        else if(INVIO.responseText == "NOT_FOUND"){
+            document.getElementById("accessErr").innerHTML = "E-Mail Inesistente";
         }
         
-        else if(Invio.responseText == "ErrMail"){
-            document.getElementById("AccessErr").innerHTML = "E-Mail Non Valida";
+        else if(INVIO.responseText == "ErrMail"){
+            document.getElementById("accessErr").innerHTML = "E-Mail Non Valida";
         }
 
-        else if(Invio.responseText == "Err"){
-            document.getElementById("AccessErr").innerHTML = "E-Mail Mancante";
+        else if(INVIO.responseText == "Err"){
+            document.getElementById("accessErr").innerHTML = "E-Mail Mancante";
         }
 
         else{
-            document.getElementById("AccessErr").innerHTML = "Account Inesistente";
+            document.getElementById("accessErr").innerHTML = "Account Inesistente";
         }
     }
 
-    Invio.open("POST", "PHP/Correzione.php", true);
-    Invio.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    Invio.send("E_Mail=" + E_Mail);
+    INVIO.open("POST", "php/correzione.php", true);
+    INVIO.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    INVIO.send("email=" + email);
 }
 
-function Risoluzione(){
-    document.getElementsByClassName("Load")[1].style.display = "block";
-    document.getElementById("ResolveErr").innerHTML = "";
-    document.getElementById("Success").innerHTML = "";
+function risoluzione(){
+    document.getElementsByClassName("load")[1].style.display = "block";
+    document.getElementById("resolveErr").innerHTML = "";
+    document.getElementById("success").innerHTML = "";
 
-    var Tmp_Pass = document.getElementsByName("Inv_Pass")[0].value;
-    var New_Pass = document.getElementsByName("Nuova_Password")[0].value;
+    var tmp_pass = document.getElementsByName("invpass")[0].value;
+    var new_pass = document.getElementsByName("nuovapassword")[0].value;
 
-    const Invio = new XMLHttpRequest();
-    Invio.onload = function(){
-        document.getElementsByClassName("Load")[1].style.display = "none";
+    const INVIO = new XMLHttpRequest();
+    INVIO.onload = function(){
+        document.getElementsByClassName("load")[1].style.display = "none";
 
-        if(Invio.responseText == "Ok"){
-            document.getElementById("Success").innerHTML = "Password Cambiata";
+        if(INVIO.responseText == "Ok"){
+            document.getElementById("success").innerHTML = "Password Cambiata";
         }
-        else if(Invio.responseText == "ErrPass"){
-            document.getElementById("ResolveErr").innerHTML = "Password inviata incorretta";
+        else if(INVIO.responseText == "ErrPass"){
+            document.getElementById("resolveErr").innerHTML = "Password inviata incorretta";
         }
-        else if(Invio.responseText == "NOT_Pass"){
-            document.getElementById("ResolveErr").innerHTML = "Dati Mancanti";
+        else if(INVIO.responseText == "NOT_Pass"){
+            document.getElementById("resolveErr").innerHTML = "Dati Mancanti";
         }
         else{
-            document.getElementById("ResolveErr").innerHTML = "Errore";
+            document.getElementById("resolveErr").innerHTML = "Errore";
         }
     }
 
-    Invio.open("POST", "PHP/Risoluzione.php", true);
-    Invio.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    Invio.send("Tmp_Pass=" + Tmp_Pass + "&New_Pass=" + New_Pass);
+    INVIO.open("POST", "php/risoluzione.php", true);
+    INVIO.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    INVIO.send("tmp_pass=" + tmp_pass + "&new_pass=" + new_pass);
 }
 
-function CloseA(){
-    ModalAccess.style.display = "none";
-    document.getElementById("AccessErr").innerHTML = "";
-    document.getElementsByClassName("Load")[0] = "none";
-    document.getElementsByName("EMail")[0].value = "";
-    document.getElementsByName("Password")[0].value = "";
+function closeA(){
+    MODALACCESS.style.display = "none";
+    document.getElementById("accessErr").innerHTML = "";
+    document.getElementsByClassName("load")[0] = "none";
+    document.getElementsByName("email")[0].value = "";
+    document.getElementsByName("password")[0].value = "";
 }
 
-function CloseR(){
-    ModalRegister.style.display = "none";
-    document.getElementById("RegisterErr").innerHTML = "";
-    document.getElementsByClassName("Load")[2] = "none";
+function closeR(){
+    MODALREGISTER.style.display = "none";
+    document.getElementById("registerErr").innerHTML = "";
+    document.getElementsByClassName("load")[2] = "none";
 }
 
-function CloseResolve(){
-    ModalResolve.style.display = "none";
-    document.getElementById("Success").innerHTML = "";
-    document.getElementsByClassName("Load")[1] = "none";
-    document.getElementById("ResolveErr").innerHTML = "";
+function closeResolve(){
+    MODALRESOLVE.style.display = "none";
+    document.getElementById("success").innerHTML = "";
+    document.getElementsByClassName("load")[1] = "none";
+    document.getElementById("resolveErr").innerHTML = "";
 }
 
-function Registrati(){
-    ModalRegister.style.display = "block";
+function registrati(){
+    MODALREGISTER.style.display = "block";
 }
 
-function Verify(){
-    const Invio = new XMLHttpRequest();
+function verify(){
+    const INVIO = new XMLHttpRequest();
 
-    Invio.onload = function(){
-        if(Invio.responseText == 1){
+    INVIO.onload = function(){
+        if(INVIO.responseText == 1){
             location.href = "AreaUtenti.html";
         }
     }
 
-    Invio.open("GET", "PHP/Verifica.php", true);
-    Invio.send();
+    INVIO.open("GET", "php/verifica.php", true);
+    INVIO.send();
 }

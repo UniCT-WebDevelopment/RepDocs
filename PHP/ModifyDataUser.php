@@ -1,75 +1,75 @@
 <?php
-    require "ConnessioneDB.php";
+    require "connessioneDB.php";
 
     session_start();
     
-    $E_Mail = NULL;
-    $Nome = NULL;
-    $Cognome = NULL;
-    $Data_Nascita = NULL;
-    $Password = NULL;
-    $Empty = false;
-    $Invalid_Mail = false;
+    $email = NULL;
+    $nome = NULL;
+    $cognome = NULL;
+    $data_nascita = NULL;
+    $password = NULL;
+    $empty = false;
+    $invalid_mail = false;
 
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
         
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-            if(($_POST["E_Mail"] == NULL) || (filter_var($_POST["E_Mail"], FILTER_VALIDATE_EMAIL) == false)){
-                $Empty = true;
+            if(($_POST["email"] == NULL) || (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false)){
+                $empty = true;
     
-                if(filter_var($_POST["E_Mail"], FILTER_VALIDATE_EMAIL) == false){
-                    $Invalid_Mail = true;
+                if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
+                    $invalid_mail = true;
                 }
             }
             else{
-                $E_Mail = $_POST["E_Mail"];
+                $email = $_POST["email"];
             }
     
-            if($_POST["Nome"] == NULL){
-                $Empty = true;
+            if($_POST["nome"] == NULL){
+                $empty = true;
             }
             else{
-                $Nome = $_POST["Nome"];
+                $nome = $_POST["nome"];
             }
     
-            if($_POST["Cognome"] == NULL){
-                $Empty = true;
+            if($_POST["cognome"] == NULL){
+                $empty = true;
             }
             else{
-                $Cognome = $_POST["Cognome"];
+                $cognome = $_POST["cognome"];
             }
     
-            if($_POST["DataNascita"] == NULL){
-                $Empty = true;
+            if($_POST["dataNascita"] == NULL){
+                $empty = true;
             }
             else{
-                $Data_Nascita = $_POST["DataNascita"];
+                $data_nascita = $_POST["dataNascita"];
             }
     
-            if($_POST["Password"] == NULL){
-                $Empty = true;
+            if($_POST["password"] == NULL){
+                $empty = true;
             }
             else{
-                $Password = $_POST["Password"];
+                $password = $_POST["password"];
             }
         }
         
-        if($Empty == false){
-            $stmt = $conn->prepare("UPDATE utente SET E_Mail = :E_Mail, Nome = :Nome, Cognome = :Cognome, Data_Nascita = :DataNascita, Pass = :Pass WHERE E_Mail = :P_E_Mail");
-            $stmt->bindParam(":P_E_Mail", $_SESSION["E_Mail"], PDO::PARAM_STR);
-            $stmt->bindParam(":E_Mail",$E_Mail, PDO::PARAM_STR);
-            $stmt->bindParam(":Nome",$Nome, PDO::PARAM_STR);
-            $stmt->bindParam(":Cognome",$Cognome, PDO::PARAM_STR);
-            $stmt->bindParam(":DataNascita",$Data_Nascita);
-            $stmt->bindParam(":Pass",$Password, PDO::PARAM_STR);
+        if($empty == false){
+            $stmt = $conn->prepare("UPDATE utente SET E_Mail = :email, Nome = :nome, Cognome = :cognome, Data_Nascita = :dataNascita, Pass = :Pass WHERE E_Mail = :p_email");
+            $stmt->bindParam(":p_email", $_SESSION["email"], PDO::PARAM_STR);
+            $stmt->bindParam(":email",$email, PDO::PARAM_STR);
+            $stmt->bindParam(":nome",$nome, PDO::PARAM_STR);
+            $stmt->bindParam(":cognome",$cognome, PDO::PARAM_STR);
+            $stmt->bindParam(":dataNascita",$data_nascita);
+            $stmt->bindParam(":Pass",$password, PDO::PARAM_STR);
             $stmt->execute();
-            $_SESSION["E_Mail"] = $E_Mail;
-            $_SESSION["Password"] = $Password;
+            $_SESSION["email"] = $email;
+            $_SESSION["password"] = $password;
             echo "Ok";
         }
         else{
-            if(($Invalid_Mail == true) && ($_POST["E_Mail"] != NULL)){
+            if(($invalid_mail == true) && ($_POST["email"] != NULL)){
                 echo "ErrMail";
             }
             else{

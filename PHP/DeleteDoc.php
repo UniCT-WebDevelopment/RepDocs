@@ -1,13 +1,13 @@
 <?php
-    require "ConnessioneDB.php";
+    require "connessioneDB.php";
 
     session_start();
 
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
         if($_SERVER["REQUEST_METHOD"] == "POST"){
-            $ID = $_POST["ID"];
-            $stmt = $conn->prepare("DELETE FROM documento WHERE ID = :ID");
-            $stmt->bindParam(":ID",$ID);
+            $id = $_POST["id"];
+            $stmt = $conn->prepare("DELETE FROM documento WHERE ID = :id");
+            $stmt->bindParam(":id",$id);
             $stmt->execute();
         }
     }

@@ -1,63 +1,63 @@
 <?php
-    require "PHP/ConnessioneDB.php";
+    require "php/connessioneDB.php";
 
     session_start();
 
-    if((isset($_SESSION["E_Mail"]) == true) && (isset($_SESSION["Password"]) == true)){
+    if((isset($_SESSION["email"]) == true) && (isset($_SESSION["password"]) == true)){
 
-        $FinalPath = NULL;
-        $E_Mail = $_SESSION["E_Mail"];
-        $Titolo = NULL;
-        $Descrizione = NULL;
-        $Illegal_File = false;    
-        $Empty = false;
+        $finalPath = NULL;
+        $email = $_SESSION["email"];
+        $titolo = NULL;
+        $descrizione = NULL;
+        $illegal_file = false;    
+        $empty = false;
     
         if($_SERVER["REQUEST_METHOD"] == "POST"){
     
-            if($_FILES["File"]["name"] == NULL){
-                $Empty = true;
+            if($_FILES["file"]["name"] == NULL){
+                $empty = true;
             }
             else{
-                $Root = "Docs/";
-                $FinalPath = $Root.basename($_FILES["File"]["name"]);
-                $StartPath = $_FILES["File"]["tmp_name"];
+                $root = "docs/";
+                $finalPath = $root.basename($_FILES["file"]["name"]);
+                $startPath = $_FILES["file"]["tmp_name"];
                 
-                if($_FILES["File"]["type"] == "application/pdf"){
-                    if(move_uploaded_file($StartPath,$FinalPath) == false){
-                        die("Errore Caricamento File");
+                if($_FILES["file"]["type"] == "application/pdf"){
+                    if(move_uploaded_file($startPath,$finalPath) == false){
+                        die("Errore Caricamento file");
                     }
                 }
                 else{
-                    $Illegal_File = true;                                       
+                    $illegal_file = true;                                       
                 }            
             }
     
-            if($_POST["Titolo"] == NULL){
-                $Empty = true;
+            if($_POST["titolo"] == NULL){
+                $empty = true;
             }
             else{
-                $Titolo = $_POST["Titolo"];
+                $titolo = $_POST["titolo"];
             }
     
-            if($_POST["Descrizione"] == NULL){
-                $Empty = true;
+            if($_POST["descrizione"] == NULL){
+                $empty = true;
             }
             else{
-                $Descrizione = $_POST["Descrizione"];
+                $descrizione = $_POST["descrizione"];
             }
         }
     
-        if(($Empty == false) && ($Illegal_File == false)){
-            $stmt = $conn->prepare("INSERT INTO documento(Percorso, Titolo, Descrizione, E_Mail) VALUES (:PathFile, :Titolo, :Descrizione, :E_Mail)");
-            $stmt->bindParam(":PathFile",$FinalPath);
-            $stmt->bindParam(":Titolo",$Titolo);
-            $stmt->bindParam(":Descrizione",$Descrizione);
-            $stmt->bindParam(":E_Mail",$E_Mail);
+        if(($empty == false) && ($illegal_file == false)){
+            $stmt = $conn->prepare("INSERT INTO documento(Percorso, Titolo, Descrizione, E_Mail) VALUES (:pathfile, :titolo, :descrizione, :email)");
+            $stmt->bindParam(":pathfile",$finalPath);
+            $stmt->bindParam(":titolo",$titolo);
+            $stmt->bindParam(":descrizione",$descrizione);
+            $stmt->bindParam(":email",$email);
             $stmt->execute();
-            header("location: MyRepDocs.html");
+            header("location: myRepDocs.html");
         }
         else{
-            if($Illegal_File == true){
+            if($illegal_file == true){
                 echo "<h1 style='text-align:center'>Puoi caricare solo file pdf</h1><br><h2 style='text-align:center'>Torna alla pagina Precedente</h2>";
             }
             else{

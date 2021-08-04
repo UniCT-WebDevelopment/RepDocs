@@ -3,156 +3,156 @@
 
 <head>
     <title>RepDocs</title>
-    <link rel="stylesheet" type="text/css" href="Stile.css">
+    <link rel="stylesheet" type="text/css" href="stile.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="Menu">
-        <div><p class="Name">RepDocs</p></div>        
+    <div class="menu">
+        <div><p class="name">RepDocs</p></div>        
 
-        <div class="DMenu">
-            <ul class="LMenu">
-                <li onclick="Accesso()">Accedi</li>
-                <li onclick="Registrati()">Registrati</li>
+        <div class="dMenu">
+            <ul class="lMenu">
+                <li onclick="accesso()">Accedi</li>
+                <li onclick="registrati()">Registrati</li>
             </ul>
         </div>
         
-        <div class="TopMenu">
-            <a style="float: right; font-size: 25px; color: orange; margin-right: 8px; padding: 0; cursor:pointer; margin-top: 10px; margin-bottom: 11px;" class="icon" onclick="ShowMenu()"><i class="fa fa-bars"></i></a>
+        <div class="topMenu">
+            <a href="#" style="float: right; font-size: 25px; color: orange; margin-right: 8px; padding: 0; cursor:pointer; margin-top: 10px; margin-bottom: 11px;" class="icon" onclick="showMenu()"><i class="fa fa-bars"></i></a>
         </div>
     </div>
 
     <div class="topnav">
-        <div id="MyLinks">
-            <a onclick="Accesso()">Accedi</a>
-            <a onclick="Registrati()">Registrati</a>
+        <div id="myLinks">
+            <a onclick="accesso()">Accedi</a>
+            <a onclick="registrati()">Registrati</a>
         </div>
     </div>
 
     <div>
-        <div class="mySlides fade" style="background-image: url('Immagini/Immagine1.jpg');">
+        <div class="mySlides fade" style="background-image: url('img/Immagine1.jpg');">
             <br><br><br>   
-            <p class="Slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
+            <p class="slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
             Qui puoi caricare i documenti che vuoi condividere e 
             scaricare quelli che ti interessano!</p>
 
-            <div class="BtnContainer">
-                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" type="button" onclick="Accesso()" value="Accedi">
-                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" type="button" onclick="Registrati()" value="Registrati">    
+            <div class="btnContainer">
+                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" type="button" onclick="accesso()" value="Accedi">
+                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" type="button" onclick="registrati()" value="Registrati">    
             </div>
             <br><br><br>
         </div>
             
-        <div class="mySlides fade" style="background-image: url('Immagini/Immagine2.jpg');"> 
+        <div class="mySlides fade" style="background-image: url('img/Immagine2.jpg');"> 
             <br><br><br>
-            <p class="Slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
+            <p class="slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
             Qui puoi caricare i documenti che vuoi condividere e 
             scaricare quelli che ti interessano!</p>
             
-            <div class="BtnContainer">
-                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" type="button" onclick="Accesso()" value="Accedi">
-                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" type="button" onclick="Registrati()" value="Registrati">    
+            <div class="btnContainer">
+                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" type="button" onclick="accesso()" value="Accedi">
+                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" type="button" onclick="registrati()" value="Registrati">    
             </div>
             <br><br><br>    
         </div>
             
-        <div class="mySlides fade" style="background-image: url('Immagini/Immagine3.jpg');">
+        <div class="mySlides fade" style="background-image: url('img/Immagine3.jpg');">
             <br><br><br>  
-            <p class="Slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
+            <p class="slog">Benvenuto su <span style="color: orange;">RepDocs</span><br><br>
             Qui puoi caricare i documenti che vuoi condividere e 
             scaricare quelli che ti interessano!</p>
             
-            <div class="BtnContainer">
-                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" onclick="Accesso()" type="button" value="Accedi">
-                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" onclick="Registrati()" type="button" value="Registrati">    
+            <div class="btnContainer">
+                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" onclick="accesso()" type="button" value="Accedi">
+                <input class="btn" style="background-color: rgba(255, 166, 0, 0.75); color: white; border: 2px solid orange;" onclick="registrati()" type="button" value="Registrati">    
             </div>
             <br><br><br>        
         </div>
     </div>
 
-    <h1 class="HTitle">Cos'e'?</h1>
-    <p class="Pres"><span style="color: orange"><b>RepDocs</b></span> e' stato pensato per creare una raccolta centralizzata sul web di tutti i documenti di qualsiasi natura. Gli utenti registrati possono caricare tutti i documenti che vogliono condividere
+    <h1 class="hTitle">Cos'e'?</h1>
+    <p class="pres"><span style="color: orange"><b>RepDocs</b></span> e' stato pensato per creare una raccolta centralizzata sul web di tutti i documenti di qualsiasi natura. Gli utenti registrati possono caricare tutti i documenti che vogliono condividere
     con gli atri utenti registrati a RepDocs. Inoltre, quando un utente deve caricare un documento dovra' inserire una descrizione soddisfacente del documento che descriva al meglio la sua natura.<br>
     Inoltre, l'utente puo' trovare documenti di qualsiasi tipo (libri, ricerche, appunti e molto altro) e che trattano qualsiasi argomento.<br>RepDocs non si assume responsabilita' nel caso in cui l'utente carichi documenti protetti da copyright.
     </p>
     
-    <h1 class="HTitle">Hai Problemi?</h1>
-    <p class="Pres" style="text-align: center;">Contattaci all'indirizzo E-Mail: <span style="color:orange; font-weight: bold;">RepDocs095@gmail.com</span></p>
+    <h1 class="hTitle">Hai Problemi?</h1>
+    <p class="pres" style="text-align: center;">Contattaci all'indirizzo E-Mail: <span style="color:orange; font-weight: bold;">RepDocs095@gmail.com</span></p>
     
-    <div class="Footer"><p class="Name" style="text-align: center;">RepDocs</p></div>
+    <div class="footer"><p class="name" style="text-align: center;">RepDocs</p></div>
     
-    <div id="AccessModal" class="Modal">
-        <div id="ModalAccessContainer" class="ModalContainer">
-            <div class="close" onclick="CloseA()">&times;</div><br>
+    <div id="accessModal" class="modal">
+        <div id="modalAccessContainer" class="modalContainer">
+            <div class="close" onclick="closeA()">&times;</div><br>
             <h1 style="text-align: center; margin-bottom: 1%;">Accedi</h1>
             <hr style="border: 1px solid black"><br><br>
             <form>
                 <p class="label">E-Mail:</p>
-                <input class="TextBox Tst" type="email" name="EMail" placeholder="Inserisci E-Mail"><br>
+                <input class="textbox tst" type="email" name="email" placeholder="Inserisci E-Mail"><br>
                 <p class="label">Password:</p>
-                <input class="TextBox Tst" type="password" name="Password" placeholder="Inserisci Password">
+                <input class="textbox tst" type="password" name="password" placeholder="Inserisci Password">
                 <div style="text-align: center; margin-top: 10px; margin-bottom: 5px;">
                     <div>
-                        <input class="Fbtn" onclick="Correggi()" type="button" value="Password Dimenticata">
+                        <input class="fbtn" onclick="correggi()" type="button" value="Password Dimenticata">
                     </div>
                     
                     <div>
-                        <input class="Fbtn" onclick="Accedi()" type="button" value="Accedi">
+                        <input class="fbtn" onclick="accedi()" type="button" value="Accedi">
                     </div>
                 </div>
             </form>
-            <p class="Load">Caricamento...</p>
-            <p id="AccessErr" class="Error"></p>
+            <p class="load">Caricamento...</p>
+            <p id="accessErr" class="error"></p>
         </div>
     </div>
 
-    <div id="ResolveModal" class="Modal">
-        <div id="ModalResolveContainer" class="ModalContainer">
-            <div class="close" onclick="CloseResolve()">&times;</div><br>
-            <h1 style="text-align: center; margin-bottom: 1%;">Recupero Password</h1>
-            <p style="text-align: center; font-size: 18px;">Ti abbiamo inviato una Mail con la Password di Recupero</p>
+    <div id="resolveModal" class="modal">
+        <div id="modalResolveContainer" class="modalContainer">
+            <div class="close" onclick="closeResolve()">&times;</div><br>
+            <h1 style="text-align: center; margin-bottom: 1%;">Recupero password</h1>
+            <p style="text-align: center; font-size: 18px;">Ti abbiamo inviato una Mail con la password di Recupero</p>
             <hr style="border: 1px solid black"><br><br>
             <form>
-                <p class="label">Password Inviata:</p>
-                <input class="TextBox Tst" type="password" name="Inv_Pass" placeholder="Inserisci Password Inviata"><br>
-                <p class="label">Nuova Password:</p>
-                <input class="TextBox Tst" type="password" name="Nuova_Password" placeholder="Inserisci Password">
+                <p class="label">password Inviata:</p>
+                <input class="textbox tst" type="password" name="invpass" placeholder="Inserisci password Inviata"><br>
+                <p class="label">Nuova password:</p>
+                <input class="textbox tst" type="password" name="nuovapassword" placeholder="Inserisci password">
                 <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
-                    <input class="Fbtn" onclick="Risoluzione()" type="button" value="Risolvi">
+                    <input class="fbtn" onclick="risoluzione()" type="button" value="Risolvi">
                 </div>
             </form>
-            <p id="Success" class="Succ"></p>
-            <p class="Load">Caricamento...</p>
-            <p id="ResolveErr" class="Error"></p>
+            <p id="success" class="succ"></p>
+            <p class="load">Caricamento...</p>
+            <p id="resolveErr" class="error"></p>
         </div>
     </div>
 
-    <div id="RegisterModal" class="Modal">
-        <div id="ModalRegisterContainer" class="ModalContainer">
-            <div class="close" onclick="CloseR()">&times;</div><br>
+    <div id="registerModal" class="modal">
+        <div id="modalRegisterContainer" class="modalContainer">
+            <div class="close" onclick="closeR()">&times;</div><br>
             <h1 style="text-align: center; margin-bottom: 1%;">Registrati</h1>
             <hr style="border: 1px solid black"><br><br>
             <form>
                 <p class="label">E-Mail:</p>
-                <input class="TextBox Tst" type="text" name="EMail" placeholder="Inserisci E-Mail"><br>
+                <input class="textbox tst" type="text" name="email" placeholder="Inserisci E-Mail"><br>
                 <p class="label">Nome:</p>
-                <input class="TextBox Tst" type="text" name="Nome" placeholder="Inserisci Nome"><br>
+                <input class="textbox tst" type="text" name="nome" placeholder="Inserisci Nome"><br>
                 <p class="label">Cognome:</p>
-                <input class="TextBox Tst" type="text" name="Cognome" placeholder="Inserisci Cognome"><br>
+                <input class="textbox tst" type="text" name="cognome" placeholder="Inserisci Cognome"><br>
                 <p class="label">Data di Nascita:</p>
-                <input class="TextBox Tst" type="date" name="DataNascita" placeholder="Inserisci Data di Nascita"><br>
+                <input class="textbox tst" type="date" name="dataNascita" placeholder="Inserisci Data di Nascita"><br>
                 <p class="label">Password:</p>
-                <input class="TextBox Tst" type="password" name="Password" placeholder="Inserisci Password">
+                <input class="textbox tst" type="password" name="password" placeholder="Inserisci Password">
                 <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
-                    <input class="Fbtn" onclick="Registrazione()" type="button" value="Registrati">
+                    <input class="fbtn" onclick="registrazione()" type="button" value="Registrati">
                 </div>
             </form>
-            <p class="Load">Caricamento...</p>
-            <p id="RegisterErr" class="Error"></p>
+            <p class="load">Caricamento...</p>
+            <p id="registerErr" class="error"></p>
         </div>
     </div>    
-    <script type="application/javascript" src="Home.js"></script>
+    <script type="application/javascript" src="home.js"></script>
 </body>
 
 </html>

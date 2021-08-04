@@ -1,37 +1,37 @@
 <?php
 
-    require "ConnessioneDB.php";
+    require "connessioneDB.php";
     
     session_start();
 
-    $E_Mail = NULL;
-    $Invalid_Mail = false;
-    $Empty = false;
+    $email = NULL;
+    $invalid_mail = false;
+    $empty = false;
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        if(($_POST["E_Mail"] == NULL) || (filter_var($_POST["E_Mail"], FILTER_VALIDATE_EMAIL) == false)){
-            $Empty = true;
+        if(($_POST["email"] == NULL) || (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false)){
+            $empty = true;
 
-            if(filter_var($_POST["E_Mail"], FILTER_VALIDATE_EMAIL) == false){
-                $Invalid_Mail = true;
+            if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
+                $invalid_mail = true;
             }
         }
         else{
-            $E_Mail = $_POST["E_Mail"];
+            $email = $_POST["email"];
         }
     }
 
-    if($Empty == false){
-        $stmt = $conn->prepare("SELECT E_Mail FROM utente WHERE E_Mail = :E_Mail");
-        $stmt->bindParam(':E_Mail',$E_Mail);
+    if($empty == false){
+        $stmt = $conn->prepare("SELECT E_Mail FROM utente WHERE E_Mail = :email");
+        $stmt->bindParam(':email',$email);
         $stmt->execute();
         
         if($stmt->setFetchMode(PDO::FETCH_ASSOC) == true){
-            $Result = $stmt->fetchAll();
+            $result = $stmt->fetchAll();
 
-            if($Result[0]["E_Mail"] == $E_Mail){
-                $Oggetto = "Recupero Password";
+            if($result[0]["E_Mail"] == $email){
+                $oggetto = "Recupero password";
                 $lung_pass = 16;
                 $mypass = "";
 
@@ -50,14 +50,14 @@
                     }
                 }
 
-                $stmt = $conn->prepare("UPDATE utente SET Pass = :Pass WHERE E_Mail = :E_Mail");
-                $stmt->bindParam(':Pass',$mypass);
-                $stmt->bindParam(':E_Mail',$E_Mail);
+                $stmt = $conn->prepare("UPDATE utente SET Pass = :pass WHERE E_Mail = :email");
+                $stmt->bindParam(':pass',$mypass);
+                $stmt->bindParam(':email',$email);
                 $stmt->execute();
-                $msg = "Password di Recupero: ".$mypass."\n\nNon rispondere a questa Mail\n\n\nRepDocs";
+                $msg = "password di Recupero: ".$mypass."\n\nNon rispondere a questa Mail\n\n\nRepDocs";
                 
-                if(mail($E_Mail,$Oggetto,$msg) == true){
-                    $_SESSION["R_E_Mail"] = $E_Mail;
+                if(mail($email,$oggetto,$msg) == true){
+                    $_SESSION["r_email"] = $email;
                     echo "Ok";
                 }
                 else{
@@ -71,7 +71,7 @@
     }
 
     else{
-        if(($Invalid_Mail == true) && ($_POST["E_Mail"] != NULL)){
+        if(($invalid_mail == true) && ($_POST["email"] != NULL)){
             echo "ErrMail";
         }
         else{
