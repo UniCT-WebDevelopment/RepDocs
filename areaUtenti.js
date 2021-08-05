@@ -1,45 +1,42 @@
-
 const MODALADD = document.getElementById("addModal");
 
-document.body.onload = function(){
+document.body.onload = function() {
     loadLastDocs();
-    loadDownDocs();  
+    loadDownDocs();
     verifyC();
 };
 
-function exit(){
+function exit() {
     const INVIO = new XMLHttpRequest();
-    INVIO.onload = function(){
+    INVIO.onload = function() {
 
-        if(INVIO.responseText == 1){
+        if (INVIO.responseText == 1) {
             alert("Ti sei Disconnesso");
-        }
-        else{
+        } else {
             alert("Non sei connesso");
         }
 
         location.href = "index.html";
     }
 
-    INVIO.open("GET","php/exit.php",true);
+    INVIO.open("GET", "php/exit.php", true);
     INVIO.send();
 }
 
-function showMenu(){
+function showMenu() {
     const MENU = document.getElementById("myLinks");
-    if(MENU.style.display === "block"){
+    if (MENU.style.display === "block") {
         MENU.style.display = "none";
-    }
-    else{
+    } else {
         MENU.style.display = "block";
     }
 }
 
-function verifyC(){
+function verifyC() {
     const INVIO = new XMLHttpRequest();
-    INVIO.onload = function(){
+    INVIO.onload = function() {
 
-        if(INVIO.responseText == 0){
+        if (INVIO.responseText == 0) {
             location.href = "index.html";
         }
     }
@@ -48,33 +45,32 @@ function verifyC(){
     INVIO.send();
 }
 
-function add(){
+function add() {
     MODALADD.style.display = "block";
 }
 
-function closeAdd(){
+function closeAdd() {
     MODALADD.style.display = "none";
 }
 
-function loadLastDocs(){
+function loadLastDocs() {
 
     var img = "img/Doc.jpg";
 
     const INVIO = new XMLHttpRequest();
-    
-    INVIO.onload = function(){
 
-        if(INVIO.responseText != "Errore"){
+    INVIO.onload = function() {
+
+        if (INVIO.responseText != "Errore") {
             var myItem = INVIO.responseText;
             var arr = JSON.parse(myItem);
 
-            for(var i=0; i<arr.length; i++){
-                document.getElementById("lastDoc").innerHTML += "<div><div class='imgDoc' style='background-image: url(" + img + ")'></div><div style='width:100%; height: 80px'><p class='titleDoc'>" + arr[i].Titolo + "</p></div><div style='width:100%; height:200px; overflow:scroll'><p class='docDescr'>" + arr[i].Descrizione + "</p></div><div style='width:100%; height: auto'><a href='" + arr[i].Percorso + "' download><input type='button' class='docbtn' onclick='downSum(" + arr[i].ID + ")' value='Scarica'></a></div></div>";
+            for (var i = 0; i < arr.length; i++) {
+                document.getElementById("lastDoc").innerHTML += "<div title='Caricato da " + arr[i].E_Mail + "'><div class='imgDoc' style='background-image: url(" + img + ")'></div><div style='width:100%; height: 80px'><p class='titleDoc'>" + arr[i].Titolo + "</p></div><div style='width:100%; height:200px; overflow:scroll'><p class='docDescr'>" + arr[i].Descrizione + "</p></div><div style='width:100%; height: auto'><a href='" + arr[i].Percorso + "' download><input type='button' class='docbtn' onclick='downSum(" + arr[i].ID + ")' value='Scarica'></a></div></div>";
             }
-                      
-        }
-        else{
-            alert("Errore Caricamento Documenti");         
+
+        } else {
+            alert("Errore Caricamento Documenti");
         }
     }
 
@@ -82,24 +78,23 @@ function loadLastDocs(){
     INVIO.send();
 }
 
-function loadDownDocs(){
+function loadDownDocs() {
 
     var img = "img/Doc.jpg";
 
     const INVIO = new XMLHttpRequest();
-    
-    INVIO.onload = function(){
 
-        if(INVIO.responseText != "Errore"){
+    INVIO.onload = function() {
+
+        if (INVIO.responseText != "Errore") {
             var myItem = INVIO.responseText;
             var arr = JSON.parse(myItem);
 
-            for(var i=0; i<arr.length; i++){
-                document.getElementById("downDoc").innerHTML += "<div><div class='imgDoc' style='background-image: url(" + img + ")'></div><div style='width:100%; height: 80px'><p class='titleDoc'>" + arr[i].Titolo + "</p></div><div style='width:100%; height:200px; overflow:scroll'><p class='docDescr'>" + arr[i].Descrizione + "</p></div><div style='width:100%; height: auto'><a href='" + arr[i].Percorso + "' download><input type='button' class='docbtn' onclick='downSum(" + arr[i].ID + ")' value='Scarica'></a></div></div>";
+            for (var i = 0; i < arr.length; i++) {
+                document.getElementById("downDoc").innerHTML += "<div title='Caricato da " + arr[i].E_Mail + "'><div class='imgDoc' style='background-image: url(" + img + ")'></div><div style='width:100%; height: 80px'><p class='titleDoc'>" + arr[i].Titolo + "</p></div><div style='width:100%; height:200px; overflow:scroll'><p class='docDescr'>" + arr[i].Descrizione + "</p></div><div style='width:100%; height: auto'><a href='" + arr[i].Percorso + "' download><input type='button' class='docbtn' onclick='downSum(" + arr[i].ID + ")' value='Scarica'></a></div></div>";
             }
-            
-        }
-        else{
+
+        } else {
             alert("Errore Caricamento Documenti");
         }
     }
@@ -108,12 +103,12 @@ function loadDownDocs(){
     INVIO.send();
 }
 
-function downSum(id){
+function downSum(id) {
 
     const INVIO = new XMLHttpRequest();
 
-    INVIO.onload = function(){
-        if(INVIO.responseText != "Ok"){
+    INVIO.onload = function() {
+        if (INVIO.responseText != "Ok") {
             alert("Errore");
         }
     }
@@ -123,6 +118,6 @@ function downSum(id){
     INVIO.send("id=" + id);
 }
 
-function areaUtenti(){
-    location.href="areaUtenti.html";
+function areaUtenti() {
+    location.href = "areaUtenti.html";
 }

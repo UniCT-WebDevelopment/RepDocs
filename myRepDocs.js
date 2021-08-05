@@ -1,51 +1,49 @@
 const MODALADD = document.getElementById("addModal");
 const MODALMODIFY = document.getElementById("modifyModal");
 
-document.body.onload = function(){
-    loadMyDocs();  
+document.body.onload = function() {
+    loadMyDocs();
     verifyC();
 };
 
-function exit(){
+function exit() {
     const INVIO = new XMLHttpRequest();
-    INVIO.onload = function(){
+    INVIO.onload = function() {
 
-        if(INVIO.responseText == 1){
+        if (INVIO.responseText == 1) {
             alert("Ti sei Disconnesso");
-        }
-        else{
+        } else {
             alert("Non sei connesso");
         }
 
         location.href = "index.html";
     }
 
-    INVIO.open("GET","php/exit.php",true);
+    INVIO.open("GET", "php/exit.php", true);
     INVIO.send();
 }
 
-function closeMod(){
+function closeMod() {
     MODALMODIFY.style.display = "none";
     document.getElementsByClassName("load")[0].style.display = "none";
     document.getElementById("modifyErr").innerHTML = "";
     document.getElementById("riuscito").innerHTML = "";
 }
 
-function showMenu(){
+function showMenu() {
     const MENU = document.getElementById("myLinks");
-    if(MENU.style.display === "block"){
+    if (MENU.style.display === "block") {
         MENU.style.display = "none";
-    }
-    else{
+    } else {
         MENU.style.display = "block";
     }
 }
 
-function verifyC(){
+function verifyC() {
     const INVIO = new XMLHttpRequest();
-    INVIO.onload = function(){
+    INVIO.onload = function() {
 
-        if(INVIO.responseText == 0){
+        if (INVIO.responseText == 0) {
             location.href = "index.html";
         }
     }
@@ -54,37 +52,35 @@ function verifyC(){
     INVIO.send();
 }
 
-function add(){
+function add() {
     MODALADD.style.display = "block";
 }
 
-function closeAdd(){
+function closeAdd() {
     MODALADD.style.display = "none";
 }
 
-function loadMyDocs(){
+function loadMyDocs() {
 
     var img = "img/Doc.jpg";
 
     const INVIO = new XMLHttpRequest();
-    
-    INVIO.onload = function(){
 
-        if(INVIO.responseText != "Errore"){
+    INVIO.onload = function() {
+
+        if (INVIO.responseText != "Errore") {
             var myItem = INVIO.responseText;
             var arr = JSON.parse(myItem);
 
-            if(arr.length > 0){
-                for(var i=0; i<arr.length; i++){
-                    document.getElementById("myDocs").innerHTML += "<div><div class='imgDoc' style='background-image: url(" + img + ")'></div><div style='width:100%; height: 80px'><p class='titleDoc'>" + arr[i].Titolo + "</p></div><div style='width:100%; height:200px; overflow:scroll'><p class='docDescr'>" + arr[i].Descrizione + "</p></div><div style='width:100%; height: auto'><a href='" + arr[i].Percorso + "' download><input type='button' class='docbtn' onclick='downSum(" + arr[i].ID + ")' value='Scarica'></a><input type='button' class='docbtn' style='background-color: red; margin-top:5px' onclick='deleteD(" + arr[i].ID +")' value='Elimina'></div></div>";
-                }    
-            }
-            else{
+            if (arr.length > 0) {
+                for (var i = 0; i < arr.length; i++) {
+                    document.getElementById("myDocs").innerHTML += "<div title='Caricato da " + arr[i].E_Mail + "'><div class='imgDoc' style='background-image: url(" + img + ")'></div><div style='width:100%; height: 80px'><p class='titleDoc'>" + arr[i].Titolo + "</p></div><div style='width:100%; height:200px; overflow:scroll'><p class='docDescr'>" + arr[i].Descrizione + "</p></div><div style='width:100%; height: auto'><a href='" + arr[i].Percorso + "' download><input type='button' class='docbtn' onclick='downSum(" + arr[i].ID + ")' value='Scarica'></a><input type='button' class='docbtn' style='background-color: red; margin-top:5px' onclick='deleteD(" + arr[i].ID + ")' value='Elimina'></div></div>";
+                }
+            } else {
                 document.getElementById("not_foundm").style.display = "block";
             }
-        }
-        else{
-            alert("Errore Caricamento Documenti");         
+        } else {
+            alert("Errore Caricamento Documenti");
         }
     }
 
@@ -92,12 +88,12 @@ function loadMyDocs(){
     INVIO.send();
 }
 
-function downSum(id){
+function downSum(id) {
 
     const INVIO = new XMLHttpRequest();
 
-    INVIO.onload = function(){
-        if(INVIO.responseText != "Ok"){
+    INVIO.onload = function() {
+        if (INVIO.responseText != "Ok") {
             alert("Errore");
         }
     }
@@ -107,17 +103,16 @@ function downSum(id){
     INVIO.send("id=" + id);
 }
 
-function deleteD(id){
+function deleteD(id) {
 
     const INVIO = new XMLHttpRequest();
 
-    INVIO.onload = function(){
-        if(INVIO.responseText == "Errore"){
+    INVIO.onload = function() {
+        if (INVIO.responseText == "Errore") {
             alert("Errore Durante l'eliminazione del Documento");
-        }
-        else{
+        } else {
             alert("Documento Eliminato");
-            location.href="MyRepDocs.html";
+            location.href = "MyRepDocs.html";
         }
     }
 
@@ -126,7 +121,7 @@ function deleteD(id){
     INVIO.send("id=" + id);
 }
 
-function modify(){
+function modify() {
     MODALMODIFY.style.display = "block";
     document.getElementsByClassName("load")[0].style.display = "none";
     document.getElementById("modifyErr").innerHTML = "";
@@ -134,11 +129,10 @@ function modify(){
 
     const INVIO = new XMLHttpRequest();
 
-    INVIO.onload = function(){
-        if(INVIO.responseText == "Errore"){
+    INVIO.onload = function() {
+        if (INVIO.responseText == "Errore") {
             alert("Errore");
-        }
-        else{
+        } else {
             var myItem = INVIO.responseText;
             var arr = JSON.parse(myItem);
 
@@ -146,7 +140,7 @@ function modify(){
             document.getElementsByName("nome")[0].value = arr[0].Nome;
             document.getElementsByName("cognome")[0].value = arr[0].Cognome;
             document.getElementsByName("dataNascita")[0].value = arr[0].Data_Nascita;
-            document.getElementsByName("password")[0].value = arr[0].Pass;            
+            document.getElementsByName("password")[0].value = arr[0].Pass;
         }
     }
 
@@ -154,7 +148,7 @@ function modify(){
     INVIO.send();
 }
 
-function modifica(){
+function modifica() {
     document.getElementsByClassName("load")[0].style.display = "block";
     document.getElementById("modifyErr").innerHTML = "";
     document.getElementById("riuscito").innerHTML = "";
@@ -168,43 +162,38 @@ function modifica(){
     var data_attuale = new Date();
     var dif = data_attuale.getFullYear() - data_nascitaC.getFullYear()
 
-    if(dif >= 15){
+    if (dif >= 15) {
         const INVIO = new XMLHttpRequest();
-        INVIO.onload = function(){
+        INVIO.onload = function() {
             document.getElementsByClassName("load")[0].style.display = "none";
 
-            if(INVIO.responseText == "Ok"){
+            if (INVIO.responseText == "Ok") {
                 document.getElementById("riuscito").innerHTML = "I tuoi dati sono stati modificati";
-            }
-            else if(INVIO.responseText == "Err"){
+            } else if (INVIO.responseText == "Err") {
                 document.getElementById("modifyErr").innerHTML = "Dati Mancanti";
-            }
-            else if(INVIO.responseText == "ErrMail"){
+            } else if (INVIO.responseText == "ErrMail") {
                 document.getElementById("modifyErr").innerHTML = "E-Mail Non Valida";
-            }
-            else{
+            } else {
                 document.getElementById("modifyErr").innerHTML = "Errore";
             }
         }
-    
-        INVIO.open("POST","php/modifyDataUser.php", true);
+
+        INVIO.open("POST", "php/modifyDataUser.php", true);
         INVIO.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        INVIO.send("email=" + email + "&nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + data_nascita + "&password=" + password);      
-    }
-    else{
+        INVIO.send("email=" + email + "&nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + data_nascita + "&password=" + password);
+    } else {
         document.getElementsByClassName("load")[0].style.display = "none";
         alert("Devi avere almeno 15 anni per usare RepDocs");
         deleteAccount();
     }
 }
 
-function loadSearchedDoc(){
-    var ricerca;
+function loadSearchedDoc() {
+    var ricerca = "";
 
-    if((document.getElementsByName("ricerca")[0].value != "") && (document.getElementsByName("ricerca")[1].value == "")){
+    if ((document.getElementsByName("ricerca")[0].value != "") && (document.getElementsByName("ricerca")[1].value == "")) {
         ricerca = document.getElementsByName("ricerca")[0].value;
-    }
-    else if((document.getElementsByName("ricerca")[1].value != "") && (document.getElementsByName("ricerca")[0].value == "")){
+    } else if ((document.getElementsByName("ricerca")[1].value != "") && (document.getElementsByName("ricerca")[0].value == "")) {
         ricerca = document.getElementsByName("ricerca")[1].value;
     }
 
@@ -212,49 +201,47 @@ function loadSearchedDoc(){
     document.getElementById("not_foundm").style.display = "block";
     var img = "img/Doc.jpg";
 
-    const INVIO = new XMLHttpRequest();
-    
-    INVIO.onload = function(){
+    if (ricerca == "") {
 
-        if(INVIO.responseText != "Errore"){
-            if(INVIO.responseText == "Vuoto"){
-                document.getElementById("not_foundm").style.display = "none";
-                loadMyDocs();
-            }
-            else{
+        location.href = "myRepDocs.html";
+    } else {
+        const INVIO = new XMLHttpRequest();
+
+        INVIO.onload = function() {
+
+            if (INVIO.responseText != "Errore") {
+                
                 var myItem = INVIO.responseText;
                 var arr = JSON.parse(myItem);
-    
+                
                 if(arr.length > 0){
                     document.getElementById("not_foundm").style.display = "none";
-    
-                    for(var i=0; i<arr.length; i++){
-                        document.getElementById("myDocs").innerHTML += "<div><div class='imgDoc' style='background-image: url(" + img + ")'></div><div style='width:100%; height: 80px'><p class='titleDoc'>" + arr[i].Titolo + "</p></div><div style='width:100%; height:200px; overflow:scroll'><p class='docDescr'>" + arr[i].Descrizione + "</p></div><div style='width:100%; height: auto'><a href='" + arr[i].Percorso + "' download><input type='button' class='docbtn' onclick='downSum(" + arr[i].ID + ")' value='Scarica'></a><input type='button' class='docbtn' style='background-color: red; margin-top:5px' onclick='deleteD(" + arr[i].ID +")' value='Elimina'></div></div>";
-                    }    
-                }    
+
+                    for (var i = 0; i < arr.length; i++) {
+                        document.getElementById("myDocs").innerHTML += "<div title='Caricato da " + arr[i].E_Mail + "'><div class='imgDoc' style='background-image: url(" + img + ")'></div><div style='width:100%; height: 80px'><p class='titleDoc'>" + arr[i].Titolo + "</p></div><div style='width:100%; height:200px; overflow:scroll'><p class='docDescr'>" + arr[i].Descrizione + "</p></div><div style='width:100%; height: auto'><a href='" + arr[i].Percorso + "' download><input type='button' class='docbtn' onclick='downSum(" + arr[i].ID + ")' value='Scarica'></a><input type='button' class='docbtn' style='background-color: red; margin-top:5px' onclick='deleteD(" + arr[i].ID + ")' value='Elimina'></div></div>";
+                    }
+                }
+            } else {
+                alert("Errore Caricamento Documenti");
             }
         }
-        else{
-            alert("Errore Caricamento Documenti");
-        }
-    }
 
-    INVIO.open("POST", "php/searcherMyDoc.php", true);
-    INVIO.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    INVIO.send("ricerca=" + ricerca);
+        INVIO.open("POST", "php/searcherMyDoc.php", true);
+        INVIO.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        INVIO.send("ricerca=" + ricerca);
+    }
 }
 
-function deleteAccount(){
+function deleteAccount() {
 
     const INVIO = new XMLHttpRequest();
 
-    INVIO.onload = function(){
+    INVIO.onload = function() {
 
-        if(INVIO.responseText == "Ok"){
+        if (INVIO.responseText == "Ok") {
             alert("Il tuo Account RepDocs e' stato Eliminato");
-            location.href="index.html";
-        }
-        else{
+            location.href = "index.html";
+        } else {
             alert("Errore Durante l'eliminazione dell'Account");
         }
     }
@@ -263,6 +250,6 @@ function deleteAccount(){
     INVIO.send();
 }
 
-function areaUtenti(){
-    location.href="areaUtenti.html";
+function areaUtenti() {
+    location.href = "areaUtenti.html";
 }

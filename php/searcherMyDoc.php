@@ -9,7 +9,7 @@
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($_POST["ricerca"] != NULL){
                 $ricerca = $_POST["ricerca"];
-                $stmt = $conn->prepare("SELECT ID, Percorso, Titolo, Descrizione FROM documento WHERE (Titolo LIKE '%".$ricerca."%') AND (E_Mail = :email)");
+                $stmt = $conn->prepare("SELECT * FROM documento WHERE (Titolo LIKE '%".$ricerca."%') AND (E_Mail = :email)");
                 $stmt->bindParam(":email", $_SESSION["email"]);
                 
                 if(($stmt->execute()) == true){
